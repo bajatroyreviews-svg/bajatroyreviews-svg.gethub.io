@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAJATROY Power Station Reviews</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0a1628;
+    color: #e8ecf1;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .bt-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:16px; }
+  .bt-logo { display:flex; align-items:center; gap:14px; }
+  .bt-logo-img { width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid #2a3f5f; box-shadow:0 2px 8px rgba(0,0,0,0.4); }
+  .bt-logo-text { font-size:22px; font-weight:600; letter-spacing:0.5px; color:#e8ecf1; }
+  .bt-logo-sub { font-size:12px; color:#7a8fa8; letter-spacing:1.5px; text-transform:uppercase; margin-top:-2px; }
+  .bt-nav { display:flex; gap:8px; flex-wrap:wrap; }
+  .bt-nav-btn {
+    padding:8px 16px; border-radius:20px; border:1px solid #2a3f5f;
+    background:transparent; color:#7a8fa8; font-size:14px; font-weight:500;
+    cursor:pointer; transition:all 0.2s ease; font-family:inherit;
+  }
+  .bt-nav-btn:hover { background:#132238; color:#e8ecf1; }
+  .bt-nav-btn.active { background:#1abc9c; color:#0a1628; border-color:#1abc9c; }
+  .bt-card-wrap { position:relative; max-width:900px; margin:0 auto; }
+  .bt-card {
+    border-radius:12px; border:1px solid #1e3a5f;
+    padding:24px; background:#0f1f35;
+    position:relative; overflow:hidden;
+  }
+  .bt-card-bg {
+    position:absolute; inset:0; border-radius:12px; opacity:0.4; pointer-events:none;
+    background:
+      radial-gradient(ellipse at 85% 15%, rgba(26,188,156,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 15% 85%, rgba(52,152,219,0.06) 0%, transparent 55%);
+  }
+  .bt-card-inner { position:relative; z-index:1; }
+  .bt-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; flex-wrap:wrap; gap:12px; }
+  .bt-name { font-size:22px; font-weight:600; color:#e8ecf1; margin:0; }
+  .bt-tag { display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:6px; font-size:12px; font-weight:600; }
+  .bt-tag.lifepo4 { background:rgba(46,204,113,0.15); color:#2ecc71; }
+  .bt-tag.lion { background:rgba(241,196,15,0.15); color:#f1c40f; }
+  .bt-tag.best { background:rgba(26,188,156,0.15); color:#1abc9c; }
+  .bt-price-row { display:flex; align-items:baseline; gap:8px; margin-bottom:4px; }
+  .bt-price { font-size:32px; font-weight:600; color:#e8ecf1; font-variant-numeric:tabular-nums; }
+  .bt-price-note { font-size:13px; color:#7a8fa8; }
+  .bt-rating { display:flex; gap:3px; margin-bottom:16px; }
+  .bt-rating svg { width:16px; height:16px; }
+  .bt-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:16px; }
+  .bt-spec { padding:12px; border-radius:10px; background:#0a1628; border:1px solid #1e3a5f; }
+  .bt-spec-label { font-size:12px; color:#7a8fa8; margin-bottom:4px; text-transform:lowercase; }
+  .bt-spec-value { font-size:15px; font-weight:500; color:#e8ecf1; }
+  .bt-spec-value.highlight { color:#1abc9c; }
+  .bt-highlights { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .bt-hl { padding:6px 12px; border-radius:6px; background:#132238; font-size:13px; color:#7a8fa8; display:flex; align-items:center; gap:6px; }
+  .bt-hl svg { width:14px; height:14px; color:#2ecc71; }
+  .bt-arrows { display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+  .bt-arrow {
+    width:40px; height:40px; border-radius:20px; border:1px solid #2a3f5f;
+    background:#0f1f35; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:all 0.2s ease; color:#7a8fa8;
+  }
+  .bt-arrow:hover { background:#132238; color:#e8ecf1; }
+  .bt-arrow svg { width:20px; height:20px; }
+  .bt-counter { font-size:14px; color:#7a8fa8; font-variant-numeric:tabular-nums; }
+  .bt-progress { height:3px; border-radius:2px; background:#132238; margin-top:16px; overflow:hidden; }
+  .bt-progress-bar { height:100%; border-radius:2px; background:#1abc9c; transition:width 0.3s ease; }
+  @media (max-width:520px) { .bt-grid { grid-template-columns:1fr; } .bt-header { flex-direction:column; align-items:flex-start; gap:12px; } }
+</style>
+</head>
+<body>
+
+<div class="bt-header">
+  <div class="bt-logo">
+    <img class="bt-logo-img" src="data:image/jpeg;base64,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" alt="BAJATROY Logo">
+    <div>
+      <div class="bt-logo-text">BAJATROY</div>
+      <div class="bt-logo-sub">Power Station Reviews</div>
+    </div>
+  </div>
+  <div class="bt-nav" id="bt-nav">
+    <button class="bt-nav-btn active" data-cat="compact">Compact</button>
+    <button class="bt-nav-btn" data-cat="mid">Mid-Range</button>
+    <button class="bt-nav-btn" data-cat="high">High-Capacity</button>
+  </div>
+</div>
+
+<div class="bt-card-wrap">
+  <div class="bt-card">
+    <div class="bt-card-bg"></div>
+    <div class="bt-card-inner" id="bt-card-inner"></div>
+  </div>
+  <div class="bt-arrows">
+    <button class="bt-arrow" id="bt-prev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="bt-counter" id="bt-counter">1 / 7</span>
+    <button class="bt-arrow" id="bt-next" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="bt-progress"><div class="bt-progress-bar" id="bt-progress" style="width:14%"></div></div>
+</div>
+
+<script>
+const data = {
+  compact: [
+    { name: "EcoFlow River 3", chem: "LiFePO4", wh: 245, out: "300W / 600W surge", charge: "AC 300W → 1 hr full. Solar 110W → 2.6 hrs", ports: "1×AC, 2×USB-A, 1×USB-C 100W, 1×Car", weight: "7.7 lbs", price: "$130–$190", warranty: "5 years", cycles: "3,000", cs: "Lifetime support, app-based", resale: "Strong", safety: "X-Guard BMS, 40+ safety measures, IP54, fire-retardant, 1m drop-resistant", rating: 5, best: "Fastest charge + lightest LiFePO4" },
+    { name: "Jackery Explorer 300 Plus", chem: "LiFePO4", wh: 288, out: "300W continuous", charge: "AC 65W wall charger. Solar compatible", ports: "2×AC, USB-A, USB-C, car port", weight: "8.3 lbs", price: "$199", warranty: "3 years", cycles: "4,000+", cs: "Good, widely available", resale: "Strong", safety: "ChargeShield, LiFePO4 thermal stability, BMS", rating: 4, best: "Most cycles in compact class" },
+    { name: "Bluetti AC2A", chem: "LiFePO4", wh: 205, out: "300W / 600W surge", charge: "AC 270W → ~1 hr. Solar 100W max", ports: "2×AC, 1×USB-C 100W, 2×USB-A, 1×Car", weight: "6.4 lbs", price: "$139–$149", warranty: "2 years", cycles: "2,500–3,000", cs: "Email-based, decent", resale: "Moderate", safety: "UPS <30ms, BMS, pure sine wave", rating: 4, best: "Best budget LiFePO4" },
+    { name: "Bluetti EB3A", chem: "LiFePO4", wh: 269, out: "600W continuous / 1,200W surge", charge: "AC + solar combined ~430W", ports: "2×AC, 1×USB-C 100W, 2×USB-A, wireless pad, DC, car", weight: "10.1 lbs", price: "$239", warranty: "2+ years", cycles: "2,500+", cs: "Decent, improving", resale: "Good", safety: "BMS, UPS mode, app monitoring", rating: 4, best: "Highest output for size" },
+    { name: "Anker 521 PowerHouse", chem: "LiFePO4", wh: 256, out: "200W continuous", charge: "AC 65W → ~4 hrs", ports: "2×USB-A, 1×USB-C, car port, 1×AC", weight: "8.2 lbs", price: "$199", warranty: "5 years", cycles: "3,000", cs: "Top-tier — 24hr response, prepaid returns", resale: "Excellent", safety: "BMS, pure sine wave", rating: 4, best: "Best warranty + customer service" },
+    { name: "Jackery Explorer 300 (Legacy)", chem: "Li-ion", wh: 293, out: "300W / 500W surge", charge: "AC ~4 hrs. Solar 100W max", ports: "2×AC, 4×USB-A, 1×USB-C, 1×Car", weight: "7.1 lbs", price: "$169", warranty: "2 years", cycles: "500–800", cs: "Good, can be slow at peak", resale: "Strong brand", safety: "Standard BMS, Li-ion less thermally stable", rating: 3, best: "Only buy if under $120" },
+    { name: "EcoFlow River 2", chem: "LiFePO4", wh: 256, out: "300W / 600W surge", charge: "AC 360W → 60 min full. Solar 110W", ports: "1×AC, 2×USB-A, 1×USB-C 60W, 1×Car, XT60", weight: "7.7 lbs", price: "$209–$240", warranty: "5 years", cycles: "3,000", cs: "Excellent — lifetime support", resale: "Strong", safety: "BMS, UPS <30ms, pure sine wave", rating: 5, best: "Proven 5-year warranty" }
+  ],
+  mid: [
+    { name: "EcoFlow Delta 2", chem: "LiFePO4", wh: 1024, out: "1,800W continuous", charge: "AC → ~80 min full. Solar up to 500W", ports: "4×AC, 2×USB-C 100W, 2×USB-A, car, DC", weight: "27 lbs", price: "$600–$700", warranty: "5 years", cycles: "3,000+", cs: "Excellent — lifetime support", resale: "Very strong", safety: "BMS, UPS <20ms, MPPT, overload protection", rating: 5, best: "Fastest charge in mid-range" },
+    { name: "Anker SOLIX C1000", chem: "LiFePO4", wh: 1056, out: "1,800W / 2,400W surge (SurgePad)", charge: "AC → 58 min full. Solar 600W max", ports: "Multiple AC, USB-C 100W, USB-A, car, XT-60", weight: "28.4 lbs", price: "$600–$700", warranty: "5 years", cycles: "3,000", cs: "Top-tier — 24hr response, 3–5 day replacement", resale: "Excellent", safety: "TotalGuard drop-proof, Pro UPS <20ms, BMS, InfiniPower", rating: 5, best: "Best overall package" },
+    { name: "Jackery Explorer 1000 v2", chem: "LiFePO4", wh: 1070, out: "1,500W continuous", charge: "AC fast. Solar up to ~800W", ports: "Multiple AC, USB-C, USB-A, car", weight: "23.8 lbs", price: "$429", warranty: "3+ years", cycles: "4,000", cs: "Good, widely available", resale: "Excellent — best-seller", safety: "BMS, ChargeShield, LiFePO4 stability", rating: 5, best: "Lightest 1kWh unit + most cycles" },
+    { name: "Jackery Explorer 1000 Plus", chem: "LiFePO4", wh: 1264, out: "2,000W continuous", charge: "Solar up to ~800W. AC fast charge", ports: "Multiple AC, USB-C, expandable", weight: "~28 lbs", price: "$600–$800", warranty: "Extended", cycles: "~4,000", cs: "Good", resale: "Excellent", safety: "BMS, expandable to ~5kWh", rating: 5, best: "Expandable up to 5kWh" },
+    { name: "Bluetti AC180", chem: "LiFePO4", wh: 1152, out: "1,800W / 2,700W surge", charge: "AC → ~1 hr full. Solar compatible", ports: "4×AC, 1×USB-C 100W, 4×USB-A, wireless 15W, car", weight: "37 lbs", price: "$449", warranty: "5 years", cycles: "3,500", cs: "Email-based, functional", resale: "Moderate", safety: "BMS, UPS <20ms, pure sine wave", rating: 4, best: "Best charge cycles for the price" },
+    { name: "EcoFlow River 2 Pro", chem: "LiFePO4", wh: 768, out: "800W / 1,600W surge", charge: "AC → ~70 min full. Solar 220W", ports: "3×AC, USB-C 100W, USB-A, car, app", weight: "17.2 lbs", price: "$450–$500", warranty: "5 years", cycles: "3,000+", cs: "Excellent — lifetime support", resale: "Strong", safety: "BMS, UPS, X-Guard, app monitoring", rating: 4, best: "Best power-to-weight ratio" },
+    { name: "Bluetti EB70", chem: "LiFePO4", wh: 716, out: "700–1,000W / ~1,400W surge", charge: "AC ~4 hrs. Solar 200W", ports: "4×AC, 2×USB-C 100W, 2×USB-A, regulated 12V, car, wireless pad", weight: "21 lbs", price: "$400–$500", warranty: "2+ years", cycles: "2,500+", cs: "Decent, improving", resale: "Good", safety: "BMS, pure sine wave", rating: 4, best: "Wireless charging pad included" }
+  ],
+  high: [
+    { name: "Jackery Explorer 2000 v2", chem: "LiFePO4", wh: 2042, out: "2,200W continuous", charge: "AC fast. Solar high input", ports: "Multiple AC, USB-C, USB-A, car", weight: "60.1 lbs", price: "$699", warranty: "Extended", cycles: "4,000+", cs: "Good", resale: "Strong", safety: "BMS, LiFePO4 stability", rating: 5, best: "Best value 2kWh unit" },
+    { name: "Bluetti AC200L", chem: "LiFePO4", wh: 2048, out: "2,400W continuous", charge: "AC + solar fast. Supports expansion batteries", ports: "4×AC, 2×USB-C 100W, 2×USB-A, 12V DC, car, expandable", weight: "~60+ lbs", price: "$900–$1,100", warranty: "5 years", cycles: "3,000+", cs: "Decent", resale: "Good for segment", safety: "BMS, expandable to 4kWh+, pure sine wave", rating: 4, best: "Expandable to 4kWh+" },
+    { name: "Jackery HomePower 3000", chem: "LiFePO4", wh: 3024, out: "3,600W continuous", charge: "AC fast. Solar bundles eligible for 30% tax credit", ports: "Multiple AC, USB-C, USB-A, car, whole-home backup", weight: "66 lbs", price: "$1,599 (~$1,119 after credit)", warranty: "Extended", cycles: "4,000+", cs: "Good", resale: "Strong", safety: "BMS, whole-home integration, LiFePO4", rating: 5, best: "Whole-home backup capable" },
+    { name: "Zendure SuperBase Pro 2000", chem: "Li-NMC (NOT LiFePO4)", wh: 2096, out: "2,000W / 3,000W surge", charge: "AC fast. Solar compatible", ports: "6×AC, 1×Car, 3×DC5521, 4×USB-C", weight: "47 lbs", price: "$1,200", warranty: "2 years (3 with registration)", cycles: "800–1,500", cs: "App-based, decent but smaller network", resale: "Lower — NMC chemistry hurts value", safety: "BMS, UPS, but NMC thermal stability concerns", rating: 3, best: "Has wheels — only one that does" }
+  ]
+};
+
+let cat = 'compact', idx = 0;
+const card = document.getElementById('bt-card-inner');
+const counter = document.getElementById('bt-counter');
+const progress = document.getElementById('bt-progress');
+const navBtns = document.querySelectorAll('.bt-nav-btn');
+
+function starSVG(filled) {
+  return `<svg viewBox="0 0 24 24" width="16" height="16" fill="${filled ? '#f1c40f' : '#2a3f5f'}" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+}
+function checkSVG() {
+  return `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+}
+function safeSVG() {
+  return `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`;
+}
+
+function render() {
+  const items = data[cat];
+  const d = items[idx];
+  const chemClass = d.chem.includes('LiFePO4') ? 'lifepo4' : 'lion';
+  const chemLabel = d.chem.includes('LiFePO4') ? 'LiFePO4' : 'Li-ion';
+  const stars = Array(5).fill(0).map((_,i) => starSVG(i < d.rating)).join('');
+  const isBest = d.best ? true : false;
+
+  card.innerHTML = `
+    <div class="bt-card-top">
+      <div>
+        <h2 class="bt-name">${d.name}</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">
+          <span class="bt-tag ${chemClass}">${chemLabel}</span>
+          ${isBest ? `<span class="bt-tag best">${d.best}</span>` : ''}
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div class="bt-price-row"><span class="bt-price">${d.price}</span></div>
+        <div class="bt-price-note">${d.weight} · ${d.wh}Wh</div>
+      </div>
+    </div>
+    <div class="bt-rating">${stars}</div>
+    <div class="bt-grid">
+      <div class="bt-spec"><div class="bt-spec-label">Power output</div><div class="bt-spec-value highlight">${d.out}</div></div>
+      <div class="bt-spec"><div class="bt-spec-label">Charging speed</div><div class="bt-spec-value">${d.charge}</div></div>
+      <div class="bt-spec"><div class="bt-spec-label">Output ports</div><div class="bt-spec-value">${d.ports}</div></div>
+      <div class="bt-spec"><div class="bt-spec-label">Charge cycles</div><div class="bt-spec-value highlight">${d.cycles} to 70–80%</div></div>
+      <div class="bt-spec"><div class="bt-spec-label">Warranty</div><div class="bt-spec-value">${d.warranty}</div></div>
+      <div class="bt-spec"><div class="bt-spec-label">Customer service</div><div class="bt-spec-value">${d.cs}</div></div>
+    </div>
+    <div style="font-size:14px;color:#7a8fa8;line-height:1.6;margin-top:4px;">
+      <strong style="color:#e8ecf1;">Resale value:</strong> ${d.resale} · 
+      <strong style="color:#e8ecf1;">Safety:</strong> ${d.safety}
+    </div>
+    <div class="bt-highlights">
+      <span class="bt-hl">${safeSVG()} ${d.chem.includes('LiFePO4') ? 'LiFePO4 thermal safe' : 'Li-ion — shorter lifespan'}</span>
+      <span class="bt-hl">${checkSVG()} ${d.warranty}</span>
+      <span class="bt-hl">${checkSVG()} ${d.cycles} cycles</span>
+    </div>
+  `;
+  counter.textContent = `${idx + 1} / ${items.length}`;
+  progress.style.width = `${((idx + 1) / items.length) * 100}%`;
+}
+
+navBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    navBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    cat = btn.dataset.cat;
+    idx = 0;
+    render();
+  });
+});
+
+document.getElementById('bt-prev').addEventListener('click', () => {
+  const items = data[cat];
+  idx = (idx - 1 + items.length) % items.length;
+  render();
+});
+document.getElementById('bt-next').addEventListener('click', () => {
+  const items = data[cat];
+  idx = (idx + 1) % items.length;
+  render();
+});
+
+render();
+</script>
+
+</body>
+</html>
