@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dan's Adventures — Part One</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{background:#20180f;font-family:Georgia,'Times New Roman',serif;color:#2b2118;overflow:hidden;}
+.deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+.page{display:none;width:min(96vw,1100px);height:min(94vh,760px);background:#f4ecd8;border-radius:8px;
+  box-shadow:0 18px 60px rgba(0,0,0,.55), inset 0 0 80px rgba(122,46,29,.07);
+  padding:46px 56px;overflow-y:auto;position:relative;}
+.page.active{display:block;}
+.paper{background:
+  radial-gradient(ellipse at 20% 10%, rgba(201,161,94,.14), transparent 55%),
+  radial-gradient(ellipse at 85% 90%, rgba(122,46,29,.10), transparent 50%);}
+h1{font-size:44px;color:#7a2e1d;text-align:center;letter-spacing:1px;}
+.kicker{text-align:center;font-size:15px;letter-spacing:5px;color:#6b5b48;text-transform:uppercase;margin:8px 0 2px;}
+.rule{width:120px;height:3px;background:#c9a15e;margin:14px auto;}
+p{font-size:17px;line-height:1.8;text-align:justify;margin:13px 0;}
+h3{font-size:19px;color:#3d2f22;margin:20px 0 2px;}
+h3 .day{color:#7a2e1d;}
+.side{color:#7a2e1d;font-style:italic;}
+.sidebox{background:#efe2c4;border-left:4px solid #c9a15e;border-radius:4px;padding:12px 18px;margin:12px 0;font-size:15.5px;font-style:italic;color:#5d3a28;}
+.wx{float:right;font-size:20px;margin:0 0 6px 14px;letter-spacing:3px;opacity:.85;}
+.cols{column-count:2;column-gap:44px;}
+@media (max-width:820px){.cols{column-count:1;}}
+.photo{width:100%;border-radius:6px;border:6px solid #fffdf5;box-shadow:0 6px 22px rgba(0,0,0,.35);display:block;}
+.polaroid{background:#fffdf5;padding:10px 10px 14px;border-radius:4px;box-shadow:0 8px 26px rgba(0,0,0,.35);transform:rotate(-1.2deg);}
+.caption{font-size:13.5px;color:#6b5b48;text-align:center;font-style:italic;margin-top:8px;}
+.slot{border:3px dashed #b3905e;border-radius:8px;background:rgba(201,161,94,.10);min-height:230px;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;}
+.slot .in{font-size:15px;color:#8a6b3f;font-style:italic;line-height:1.6;}
+.slot .cam{font-size:34px;display:block;margin-bottom:8px;color:#b3905e;}
+.qpage{display:flex;flex-direction:column;justify-content:center;}
+.bigq{font-size:33px;font-style:italic;line-height:1.45;color:#4a2c1a;text-align:center;margin:18px 6px;}
+.qsrc{text-align:center;color:#7a2e1d;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-top:14px;}
+.divider{display:flex;flex-direction:column;justify-content:center;text-align:center;}
+.divnum{font-size:15px;letter-spacing:6px;color:#c9a15e;text-transform:uppercase;}
+.divtitle{font-size:54px;color:#7a2e1d;margin:12px 0;}
+.divsub{font-size:17px;font-style:italic;color:#6b5b48;}
+.timometer{display:flex;align-items:center;gap:10px;margin:10px 0 2px;font-size:14px;color:#6b5b48;font-style:italic;}
+.timometer .track{flex:1;height:10px;background:#e4d6b4;border-radius:6px;border:1px solid #c9a15e;position:relative;}
+.timometer .fill{position:absolute;left:0;top:0;bottom:0;background:#a34a2a;border-radius:6px;}
+.tal{display:flex;gap:20px;align-items:flex-start;margin:16px 0;}
+.tal .ico{font-size:36px;color:#7a2e1d;width:52px;text-align:center;flex-shrink:0;}
+.tal .txt{font-size:15.5px;line-height:1.65;text-align:left;}
+.tal .txt b{color:#7a2e1d;}
+.nav{position:fixed;bottom:14px;left:0;right:0;display:flex;justify-content:center;gap:14px;z-index:9;align-items:center;}
+.nav button{background:#7a2e1d;color:#f4ecd8;border:none;border-radius:6px;padding:9px 18px;font-family:inherit;font-size:15px;cursor:pointer;}
+.nav button:hover{background:#a34a2a;}
+.counter{color:#e8dcc2;font-size:14px;min-width:64px;text-align:center;letter-spacing:1px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
+@media (max-width:820px){.grid2{grid-template-columns:1fr;}}
+.cont{text-align:center;font-size:14px;color:#6b5b48;letter-spacing:3px;text-transform:uppercase;margin-top:26px;}
+.end{font-size:15px;color:#6b5b48;font-style:italic;text-align:center;margin-top:22px;}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 · COVER -->
+<section class="page paper active">
+  <div style="max-width:420px;margin:10px auto 0;" class="polaroid">
+    <img class="photo" src="dans_assets/danny-can.jpg" alt="Danny Regan today">
+    <div class="caption">Danny Regan — then a kid on a bike, now this guy.</div>
+  </div>
+  <h1 style="margin-top:26px;">Dan&rsquo;s Adventures</h1>
+  <div class="rule"></div>
+  <p style="text-align:center;font-size:18px;font-style:italic;">A bicycle journey from San Francisco to Boston, begun August&nbsp;20,&nbsp;1985.</p>
+  <p style="text-align:center;font-size:15px;color:#6b5b48;">From the handwritten journal of Danny Regan &middot; Part One</p>
+  <div class="cont">Click or use arrow keys &#8594;</div>
+</section>
+
+<!-- 2 · THE TALISMANS -->
+<section class="page paper">
+  <p class="kicker">Before you start</p>
+  <h1 style="font-size:36px;">The Talismans</h1>
+  <div class="rule"></div>
+  <p style="text-align:center;font-style:italic;">Three things Danny packed without knowing they were the whole story. Watch for them.</p>
+  <div class="tal"><div class="ico">&#9875;</div><div class="txt"><b>The Towel.</b> A little towel with the words &ldquo;the towel&rdquo; written on it. If he ever calls it quits, he has to physically throw it in. Every dark night in this journal, the towel is still in the bag.</div></div>
+  <div class="tal"><div class="ico">&#9679;</div><div class="txt"><b>The Rock.</b> Picked up on Day 1 from the shore of San Pablo Bay — he thought it was the Pacific Ocean because you couldn&rsquo;t see across. The intent: throw it into the Atlantic. <i>Should he ever get there.</i></div></div>
+  <div class="tal"><div class="ico">&#9818;</div><div class="txt"><b>Papa&rsquo;s Elk Tooth.</b> Strung on a new gold chain before departure. &ldquo;Hopefully, it will be an inspiration. So, I&rsquo;ll take all I can.&rdquo;</div></div>
+  <div class="end">&#10086; Bracketed passages [like these] are margin notes — lines squeezed in later. They stay in brackets, exactly where they belong.</div>
+</section>
+
+<!-- 3 · DIVIDER 1 -->
+<section class="page paper divider">
+  <div class="divnum">Part One &middot; August 20 &ndash; 29, 1985</div>
+  <div class="divtitle">San Francisco<br>to the Rockies</div>
+  <div class="rule"></div>
+  <div class="divsub">120 miles on day one. A stranger named Tim. Donner Summit.<br>Then Nevada does what Nevada does.</div>
+</section>
+
+<!-- 4 · DAY 1 -->
+<section class="page paper">
+  <h3><span class="day">Tuesday, August 20, 1985</span> — Day 1 — San Francisco, California <span class="wx">&#127787; &#9728;</span></h3>
+  <div class="cols">
+  <p>The journey begins. Everyone says I need to keep a journal so this is it. My thoughts at this moment prior to departure are both excitement and apprehension. The long-term or final destination is Boston, MA. The immediate goal is Tahoe via Sacramento. Tahoe should be a three day trip with a lot of climbing. Well the bike&rsquo;s packed and I&rsquo;m set, so let&rsquo;s do it.</p>
+  <p><b>Twelve hours later:</b> some hundred and twenty miles I&rsquo;m five miles from Sacramento. I seriously doubt if I&rsquo;ll be able to walk tomorrow. When I left San Francisco it was very foggy as usual. I went over the Golden Gate Bridge and over to Richmond. That route was cancelled long ago. I had no choice but to ride over the Richmond bridge which is illegal. A Caltrans worker tried to keep me from going over but I pretended not to hear him. When I was about 1/4 of a mile from the end a Caltrans worker stopped me. I played dumb. He offered to give me a ride to the end where it would be safe, I accepted.</p>
+  <p>Once out of Marin county it got extremely hot. I&rsquo;d say at least 90. My neck got sore holding the helmet up. Not to mention my rear. Of course the legs and arms got tired as well. There were some scary parts. Going over the Antioch bridge with strong gusts of wind trying to blow you over. Certain sections of highway had little or no shoulder and semis would toss you around. Coming off the Antioch bridge and for four or five hours after I was riding against head winds which didn&rsquo;t make the going easy. Right now I&rsquo;m about forty yards off the road amongst landscaping for an AT&amp;T relay station. The sun is setting fast so I&rsquo;ll have to end this. Also, the mosquitoes are getting pretty vicious.</p>
+  <p>Later that night, after an hour sleep I couldn&rsquo;t get back to sleep. I suppose it was the noise from the traffic. Being sweaty &amp; sticky didn&rsquo;t help either. Anyhow I packed up and drove into Sacramento and got a motel room. My knee is feeling too hot, but hopefully it will make it to Tahoe.</p>
+  </div>
+  <div class="cont">Day 1: ~120 miles &middot; SF to five miles shy of Sacramento</div>
+</section>
+
+<!-- 5 · DAY 2 / MEETS TIM -->
+<section class="page paper">
+  <h3><span class="day">Wednesday, August 21</span> — Day 2 <span class="wx">&#9728; &#9728;</span></h3>
+  <div class="cols">
+  <p>Ready to leave Sacramento. Not looking forward to the climb to Tahoe. I had a slight cold when I left San Francisco. I think I&rsquo;ve pretty much got over that. No doubt I pushed myself too hard yesterday. I&rsquo;ve got a slight headache. The sun was pretty relentless yesterday. Today I feel a little light headed. Hopefully a little breakfast will do the trick.</p>
+  <p>Well, I&rsquo;m about 7 miles past Auburn at about 2,000 feet. The day went much better than I anticipated. Of course, I didn&rsquo;t put in as many miles, but the climbing was tougher. My trip may have taken a big turn today. It was about five o&rsquo;clock and I still had a lot of climbing to do. I was just starting to look for a place to spend the night. I had pulled over to rest a spell when another biker with the full load came riding down the hill. He stopped. I presumed he was going to make small talk about where I was going or where he had been. Turns out he is also on his way to Boston &amp; is camping out at these people&rsquo;s house about thirty yards back up the hill. Tim, the guy who is also on his way to Boston, seems like a nice person so we both agreed to tag along together. Having another person along should definitely make the going a little easier.</p>
+  <p>Dennis, your Pizza Bob&rsquo;s hat was a casualty on the Antioch bridge. As I wrote earlier it was extremely windy, and, well the dude just took a leap into the San Pablo Bay — sorry.</p>
+  <p>Tomorrow should prove to be the biggest test yet. Donner Pass, elevation 7,000. Then on into Truckee &amp; up to Tahoe and down to State Line. It was hot again and I consumed much liquids. All I know about Tim is that he&rsquo;s 21, plays the guitar, and is an artist. He got a two-year degree in art. He was studying radiology &amp; thought he was going to make it his profession. Any day, he didn&rsquo;t like being indoors all day or the people he was working for/with. Anyhow, he left San Francisco a day before me, but sat in Sacramento; spent a day fixing it. He apparently has done more touring; certainly more than I — since I have done none of either prior to this. I guess he planned this trip for quite a while, unlike myself.</p>
+  <p>Tim got hooked up with the people we&rsquo;re staying with through his girlfriend&rsquo;s father. They have been real nice. They fed us and I got to clean up, which is great after a day on the road. We&rsquo;re sleeping out in the yard and the freeway is about thirty yards away so sleeping might not be too easy.</p>
+  </div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:12%"></div></div><span>&ldquo;Seems like a nice person&rdquo;</span></div>
+</section>
+
+<!-- 6 · TALISMANS ON THE ROAD -->
+<section class="page paper">
+  <h3><span class="day">Still August 21</span> — small hours &amp; summits <span class="wx">&#9728;</span></h3>
+  <div class="cols">
+  <p>Some little tidbits: I brought a rock that I picked up the first day, from the Pacific Ocean, or rather the San Pablo Bay. I thought it was the Pacific because you couldn&rsquo;t see across. But when I looked at the map it was definitely the Bay. Nonetheless, the intent is to throw it into the Atlantic Ocean — should I ever get there. Also, I brought a little towel that I wrote &ldquo;the towel&rdquo; on &amp; so that when or if I declare to call it quits I have to physically throw in the towel.</p>
+  <p>Before I left I got a gold chain for Papa&rsquo;s elk&rsquo;s tooth that never gave me some time back. Hopefully, it will be an inspiration. So, I&rsquo;ll take all I can. The hard part so far hasn&rsquo;t been just the physical aspect, that is certainly a big factor. Boredom &amp; loneliness, and the mental factor have been tough.</p>
+  <p>Much, much later, like the next day at 6 o&rsquo;clock I&rsquo;m sitting in a greasy spoon diner in Cisco Grove waiting for&hellip; Neither of us knew it, how could we, but we were about a 1/4 of a mile from a summit. We had climbed to over 5,000 feet. I kept having to stop &amp; wait for Tim. At one time I waited over 45 minutes. The climbing was slow but I really felt the groove. It was easily 90 in here today and I easily drank fifteen quarts of water. Anyhow back to the two of us nearly to the elusive summit. Tim decided he couldn&rsquo;t go any farther and was going to hitch a ride &amp; we&rsquo;d meet at Cisco Grove. Donner Summit is 7,000 plus feet. Having gone over 5,000 ft I felt I could do it. I rode away not knowing for sure if Tim would still give it a go or grab a ride. Here&rsquo;s the real irony — put it on hold — here&rsquo;s Tim. I hope he made it on his own. I&rsquo;ll explain later.</p>
+  <p>I&rsquo;m back. I guess Tim made it. A few miles after the summit I pulled into a gas station and coffee shop to get water. The people there said we had made it over the hard part and that the climb to Donner&rsquo;s summit is more gradual. There&rsquo;s the irony. We were so close &amp; we didn&rsquo;t know. Tim pulled into the same coffee shop and the guy working there said &ldquo;hey you&rsquo;re the guy that&rsquo;s forty minutes behind&rdquo;. Don&rsquo;t get me wrong, but waiting for Tim is slowing the pace. Hopefully it won&rsquo;t be a problem when we stop climbing so much. It easily could have been me. We still have some riding to do tonight. So far we put in around 50 miles — mostly climbing.</p>
+  </div>
+</section>
+
+<!-- 7 · QUOTE PAGE 1 -->
+<section class="page paper qpage">
+  <div class="grid2">
+    <div>
+      <p class="kicker">The Journal Speaks</p>
+      <div class="bigq">&ldquo;Dennis, your Pizza Bob&rsquo;s hat was a casualty on the Antioch bridge&hellip; the dude just took a leap into the San Pablo Bay — sorry.&rdquo;</div>
+      <div class="qsrc">Day 2 &middot; August 21, 1985</div>
+    </div>
+    <div class="polaroid"><img class="photo" src="dans_assets/danny-grin.jpg" alt="Danny"><div class="caption">Danny, already laughing at his own story.</div></div>
+  </div>
+</section>
+
+<!-- 8 · DONNER SUMMIT -->
+<section class="page paper">
+  <h3><span class="day">Donner Summit — 7,500 feet</span> <span class="wx">&#127783; &#127768;</span></h3>
+  <div class="cols">
+  <p>We made it to Donner Summit, elevation 7,500 feet. I got a flat tire at 6,000 feet and had to keep stopping to put air in it. We got to the summit just as the sun was setting. The plan was to ride on down to Truckee &amp; look up a place to spend the night. My tire was getting low again and it was completely dark.</p>
+  </div>
+  <div class="sidebox">[We were riding past a row of shops and I said hello to a guy unpacking his car. He said &ldquo;do you know where you&rsquo;re staying tonight&rdquo;. I replied &ldquo;not really&rdquo;. Which was as close to the truth as I could get. Anyhow, he offered to let us stay the night. Boy what a blessing — a warm cabin and a hot shower. The guy&rsquo;s name is Jay, he&rsquo;s 24, a Cal, and is a student at Berkeley. He&rsquo;s a real nice guy &amp; we had a nice chat, then crashed out the minute we got here. I definitely think he had heat exhaustion. He was shaking badly. Good thing we didn&rsquo;t go down to Truckee, Jay says it&rsquo;s the coldest place in America during the summer. Last night it was around freezing.]</div>
+  <div class="sidebox">[A long time family friend&rsquo;s house, Jimbo Hendry. Has a great house in the hills. Once again it was a treat to get a good meal and get cleaned up. Tim is driving me crazy. Yesterday he wanted to stop for breakfast, then go swimming, and later for lunch. Now he wants to stay here for another day. If we went at his pace we&rsquo;d make it to Boston around the turn of the century. He figured on 50 miles a day and I on 100, so our plans are quite divergent. Today we have to decide whether to go out on I-80 and try &amp; find frontage roads for hundreds of miles (Tim&rsquo;s plan), or to take Highway 50 all the way to Denver (my plan). We&rsquo;ll see who wins this one.]</div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:34%"></div></div><span>&ldquo;Driving me crazy&rdquo;</span></div>
+</section>
+
+<!-- 9 · DIVIDER NEVADA -->
+<section class="page paper divider">
+  <div class="divnum">Part Two</div>
+  <div class="divtitle">Nevada:<br>A Living Hell</div>
+  <div class="rule"></div>
+  <div class="divsub">Fifty miles into the desert at midnight. No water.<br>And the worst part: the company.</div>
+  <div style="max-width:300px;margin:26px auto 0;" class="polaroid"><img class="photo" src="dans_assets/danny-necklace.jpg" alt="Danny"><div class="caption">Desert Danny era.</div></div>
+</section>
+
+<!-- 10 · DARK CLOUD -->
+<section class="page paper">
+  <h3><span class="day">East of the Sierra</span> <span class="wx">&#9728;</span></h3>
+  <div class="sidebox">[Tim is a very nice kid, but he&rsquo;s just very young. Later that day, we were about an hour down the road and Tim&rsquo;s wheel became bent, now it appears his spoke is broken and he didn&rsquo;t bring any spares. This guy has a dark cloud over his head. I feel like a father on this trip. &ldquo;Come on son, move along&rdquo;, &ldquo;but daddy I&rsquo;m hungry&rdquo;. Such the experienced mountain biker and no spare spokes. This may seem vicious, but this is a journal &amp; these are my thoughts. In actuality, I&rsquo;m being very nice to Tim but it can be trying. At Stateline he wanted to eat breakfast at a place where you had no chance of watching the bikes. At times I think he wants them to get stolen so we can call it quits.]</div>
+  <div class="sidebox">[Two hours later, I&rsquo;m waiting in Carson City for Tim. I just came down a 6% grade 8 miles long. Cars were throwing gravel at me. It was very windy but no danger. One truck driver was a real jerk and cut right in front of me leaving a nice barrage of gravel &amp; dust. I think I see Tim coming down the grade.]</div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:48%"></div></div><span>&ldquo;A dark cloud over his head&rdquo;</span></div>
+</section>
+
+<!-- 11 · SUNDAY AUG 25 -->
+<section class="page paper">
+  <h3><span class="day">Sunday, August 25</span> — the desert at midnight <span class="wx">&#9728; &#9728; &#9728;</span></h3>
+  <div class="cols">
+  <p>It has been a living hell. We pulled into Fallon late at night after spending a few hours having Tim&rsquo;s bike worked on. When we pulled into Fallon Tim and I had a huge argument because I wanted to get a motel and he wanted to sleep on the lawn in front of a trailer park. I flatly told him that I couldn&rsquo;t compromise my game plan to suit him. We decided to get a motel &amp; then they were all booked up. Austin is about 121 miles outside of Fallon with a whole lot of nothing in-between. We had already put in a good 120 miles and I just wanted to rest before taking on Austin. Tim made one of the biggest misjudgments so far. He decided we should ride on towards Austin and sleep where we could. Fifty miles later we were in the middle of the desert without water at twelve midnight. I was tempted to leave Tim there, but instead stayed. I was pretty furious because I would have never left Fallon. Tim claims to be an artist you know he uses the left side of his brain — doesn&rsquo;t see things like I do. In other words he is the most unpractical person I know. I don&rsquo;t think he&rsquo;s particularly crazy about me. I told him I might have to go ahead without him because our plans are different. Since then he has been keeping up and even going ahead of me. Nevada is a real cauldron. We&rsquo;ve been talking about quitting, a ride out of this hell hole. Believe me, it&rsquo;s real tempting.</p>
+  <p>I got a flat out and caught a ride about a mile from Austin. I wanted a motel again after the last two days of heat &amp; sweat, but we found a Baptist RV park which is doing just fine. On the ride out we have stopped at two roadside cafe bars. Boy, two old cowboys sitting at the bar staring into nowhere. How these people can live this way is beyond me. Now a twilight zone pizza joint run by a guy who could be a former lead singer for a heavy metal band. This place is definitely the local drug center. Tim wanted to leave all our stuff at the RV park and get dinner half a mile down the street. Sure I always leave seventeen hundred dollars worth of bicycle gear and a camera unattended for great lengths of time. I just want to give people tough moral decisions.</p>
+  </div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:62%"></div></div><span>&ldquo;Tempted to leave Tim there&rdquo;</span></div>
+</section>
+
+<!-- 12 · AUSTIN EVENING -->
+<section class="page paper">
+  <h3><span class="day">Austin, Nevada</span> — an evening <span class="wx">&#127866; &#127922;</span></h3>
+  <div class="grid2">
+    <div>
+      <p class="kicker" style="text-align:left;">How I spent an evening in Austin</p>
+      <p style="font-style:italic;font-size:19px;">by Danny Regan</p>
+      <div class="rule" style="margin:12px 0;"></div>
+      <p>After dinner I strolled into a local bar. Put down two Budweisers and played the female bartender a game of pool. Nearly lost the damn game. Played a little slots &amp; a little mechanical poker. Also, took in the local gossip. Seems they just redid the highway, and here soon they&rsquo;re putting in sidewalks. Will excitement never end in Austin.</p>
+    </div>
+    <div class="slot"><div class="in"><span class="cam">&#128247;</span>PHOTO SLOT<br>Big empty frame waiting for Danny&rsquo;s picture<br><span style="font-size:12.5px;">(the Austin bar, if one exists)</span></div></div>
+  </div>
+</section>
+
+<!-- 13 · MONDAY AUG 26 -->
+<section class="page paper">
+  <h3><span class="day">Monday, August 26</span> — Day 7 <span class="wx">&#9728; &#127786;</span></h3>
+  <div class="cols">
+  <p>We&rsquo;re packing up for the trip to Eureka. Supposedly twelve miles of climbing and two summits, seventy miles all together. Seems like it would be a hot day like yesterday. Every morning since I left I have woken up with a small bug or flu, today was no exception. Hopefully I can shake it in a few days. Today I better leave my shirt on, I got pretty fried yesterday. Eureka Nevada, yet another lovely town. The climb out of Austin was a bitch, twelve miles of climbing. From there on it was pretty sailing as I rolled into Eureka after five hours on the road. Seventy miles in five hours is pretty good considering the climb and a couple of summits. I think I&rsquo;ve been the angriest yet when I had fierce head-winds about five miles out of Eureka. It was like riding into a wall.</p>
+  <p>Tim pulled in about a half hour later. His face is one big blister, and his lips look like they&rsquo;re going to crack &amp; fall off his face. The big event for the day was when a hippie type pulls over and in a very panicked state asks if there&rsquo;s a tornado. He had seen a big sand twister and started to freak. Once assured that it was no danger he got back in his car &amp; drove away, probably listening for tornado warnings the whole way. We might try to ride into Ely (pronounced like Ele not Eli). It is 77 miles from Eureka to Ely with several separate summits and absolutely nothing in-between. It is times like this that I ask myself &ldquo;what the hell are you doing&rdquo;. I guess I don&rsquo;t know. A crazy idea comes into your head so you act on it. There have been a lot of crazy ideas pop into my head. But</p>
+  <p>I wish I would have acted on rather than this. At times it has been rewarding, but mostly it has been a physical drain. At this point I&rsquo;m hoping I can hold on &rsquo;til Denver when it gets flat so I can make some better time. Not. But we haven&rsquo;t been making good time, it&rsquo;s just the desert is so hot and has too many hills. How did this trip come about. Try to follow this logic. I&rsquo;m working in San Francisco and I am real fed up with the five to six days a week job. Why not see the world while you&rsquo;re young and haven&rsquo;t got any commitments. How bout Europe. The planes fly out of New York to go to Europe, right? So, you&rsquo;ve got to go to New York, why not ride a bike? Brilliant, simply genius, somehow the biking part wouldn&rsquo;t get out of my head, so what you do?</p>
+  </div>
+</section>
+
+<!-- 14 · WHY HE DID IT -->
+<section class="page paper">
+  <p class="kicker">The Logic</p>
+  <h1 style="font-size:36px;">Why a Bike?</h1>
+  <div class="rule"></div>
+  <div style="max-width:620px;margin:0 auto;">
+  <p style="font-size:21px;text-align:center;font-style:italic;">&ldquo;How bout Europe. The planes fly out of New York to go to Europe, right? So, you&rsquo;ve got to go to New York, why not ride a bike? Brilliant, simply genius.&rdquo;</p>
+  <div class="rule"></div>
+  <p>You give a month&rsquo;s notice at work and spend every penny you own on a touring bike. Oh yes. You try not to let too many people know about your &ldquo;great&rdquo; idea, but like everything or secret you ever tried to hold, it gets out <span class="side">[my big mouth]</span>.</p>
+  </div>
+</section>
+
+<!-- 15 · QUOTE PAGE 2 -->
+<section class="page paper qpage">
+  <div class="grid2">
+    <div class="polaroid"><img class="photo" src="dans_assets/danny-glasses.jpg" alt="Danny laughing"><div class="caption">The face of a man filing Nevada under &ldquo;done.&rdquo;</div></div>
+    <div>
+      <p class="kicker">The Journal Speaks</p>
+      <div class="bigq">&ldquo;Having spent the last few days riding through this state, I think they made the right choice when they chose it for nuclear testing.&rdquo;</div>
+      <div class="qsrc">Nevada &middot; written from inside Nevada</div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · PART 3 OPENER -->
+<section class="page paper">
+  <p class="kicker">Part Three</p>
+  <h1 style="font-size:34px;">10:42 Monday Night</h1>
+  <div class="rule"></div>
+  <div class="cols">
+  <div class="sidebox" style="column-span:all;">[10:42 Monday night, there wasn&rsquo;t any good reason to stick around in Eureka, so at about 6:30 we decided to head towards Ely. Four hours later we&rsquo;re 50 miles down the road. Once again we&rsquo;re sleeping on the side of the road. This time I&rsquo;m ready for it. Tomorrow we&rsquo;ll make the climb to Ely. If we&rsquo;re lucky we&rsquo;ll be out of this state. Having spent the last few days riding through this state I think they made the right choice when they chose it for nuclear testing. You&rsquo;d think some of the people around here have a little fall-out damage. That&rsquo;s not entirely fair. Many people have been extremely pleasant. However, many seem to be running on low batteries.]</div>
+  <p>I&rsquo;m getting used to the physical part, but the boredom is taking its toll. I came real close to parting ways with Tim. We don&rsquo;t see eye to eye on any subject matter. He&rsquo;s very young, and not very practical. Why? Why am I stuck crossing the country with a guy I&rsquo;m not particularly pleased with. I really did come close to telling him tonight, but I can&rsquo;t see leaving a person in the middle of this hell hole. Honestly, as bad as his company is I don&rsquo;t particularly want to travel alone. Therein lies the dilemma <span class="side">[no dictionary]</span>. I realize he probably doesn&rsquo;t care as for my company either. Oh well, we put in 120 miles today and I&rsquo;m pooped.</p>
+  <p>One last note before I pass out. A truck driver had told us that he saw three mountains big on the winding roads ahead. Tonight I was a good two miles ahead of Tim when the road started to twist and curve for about four miles. It was a full moon and all these big boulders hung over the road. It was a perfect scene for a Daniel Boone episode where the lion jumps off the cliff onto the unsuspecting victim. Riding at night is not the safest thing, but it&rsquo;s no fun being stuck in the middle of nowhere.</p>
+  </div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:74%"></div></div><span>&ldquo;Therein lies the dilemma [no dictionary]&rdquo;</span></div>
+</section>
+
+<!-- 17 · UTAH BORDER -->
+<section class="page paper">
+  <h3><span class="day">Tuesday, August 27</span> — the Nevada/Utah line <span class="wx">&#127780; &#9737; &#127780;</span></h3>
+  <div class="cols">
+  <p>I doubt I&rsquo;d ever see this day or rather this night, I&rsquo;m on the border of Nevada and Utah, yes I&rsquo;m finally getting out of Nevada, many summits &amp; hot days later. Sacramento Summit, elevation 7,200 feet, was the last and final obstacle between me &amp; the state of Utah. Once again I&rsquo;m sleeping in a field by the side of the road. Today we took a shower at a KOA campground outside of Ely. Tim balked about the three dollar fee for the shower, this guy squeaks. We pulled over here because there&rsquo;s a gas station that is the last thing for 90 miles of Utah desert, no climbing this time. Next stop Delta, then Provo — I hope. I&rsquo;m looking forward to the Rockies — sure Danny.</p>
+  <p>Stopped in a little roadside bar about seven miles from here to celebrate the conquest of Nevada. After Nevada and Donner&rsquo;s summit in California I feel like I could climb any summit. I&rsquo;m tired of having an old couple with their RV at every stop telling us how rough the road is ahead. So far, nothing has lived up to their descriptions. I think they all worried about us young boys. I miss my family very much. I haven&rsquo;t had time to write as much as I&rsquo;d like, however, I&rsquo;ve phoned to keep them fairly abreast of the progress and my whereabouts. Again tonight there&rsquo;s an impressive lightning storm off in the distance. Today it rained lightly. All in all we&rsquo;ve had great weather. However, like yesterday I had to ride at times against fierce head-winds. It got very cold last night and I woke up several times shaking, which didn&rsquo;t help my cold — still haven&rsquo;t shaken it. Tim hasn&rsquo;t been complaining as much. Today I still spent a good deal of time waiting for him. Every day I think this is the day I tell him I want to go my separate ways. Things have gotten a little better. The big thing is to just keep on riding and deal with what comes. Good night.</p>
+  </div>
+</section>
+
+<!-- 18 · WEDNESDAY / LAWYER -->
+<section class="page paper">
+  <h3><span class="day">Wednesday</span> — Delta, Utah <span class="wx">&#9728; &#9760;</span></h3>
+  <div class="cols">
+  <p>Turns out we were sleeping in Utah by 30 yards and didn&rsquo;t know it. My hand is really fatigued — a very weird sensation — I can barely hold the pen. From the border to Delta where I&rsquo;m at now, is eighty-eight miles of boiling desert. We had two summits, one that wasn&rsquo;t bad at all. We bumped into two guys that are biking from Denver to San Francisco. One was a lawyer, the other an accountant, both from Pueblo, Colorado. We ended up staying at the same motel and I had a long talk with them. They said they would go into the Chart House and mention that they saw me. They even took a picture. Both of them suggested that I ditch Tim. I say, from first impressions, I didn&rsquo;t think that he would make it especially by himself. Tomorrow I think I&rsquo;ll tell him that I&rsquo;m going on.</p>
+  <p>Early in the ride I didn&rsquo;t believe my legs would make it, but I got a second wind. Today was the day for dead roadside animals. A cow, a deer, a fox, a rabbit, and many others that were not recognizable. A few days back there was a single, well preserved cow&rsquo;s leg? Anything to pass the time.</p>
+  </div>
+  <div class="slot" style="margin-top:14px;"><div class="in"><span class="cam">&#128247;</span>PHOTO SLOT<br>Waiting for Danny&rsquo;s picture<br><span style="font-size:12.5px;">(those two guys &ldquo;even took a picture&rdquo; — if it ever surfaces, it goes here)</span></div></div>
+</section>
+
+<!-- 19 · QUOTE PAGE 3 -->
+<section class="page paper qpage">
+  <div class="grid2">
+    <div>
+      <p class="kicker">Heber, Utah &middot; Thursday, 11 PM</p>
+      <div class="bigq" style="font-size:29px;">&ldquo;Excuse my writing, I literally cannot hold the pen.&rdquo;</div>
+      <p style="text-align:center;font-size:16px;">Eleven straight days gripping the handlebars. Tendinitis. &ldquo;I feel like I had a stroke, I&rsquo;ve got zero finger mobility or strength.&rdquo; In the actual journal, the handwriting visibly collapses here — and then he keeps writing anyway.</p>
+      <div class="qsrc">The pen drops. The journal continues.</div>
+    </div>
+    <div class="polaroid"><img class="photo" src="dans_assets/danny-smirk.jpg" alt="Danny"><div class="caption">Still here. Still writing.</div></div>
+  </div>
+</section>
+
+<!-- 20 · PARTING WITH TIM -->
+<section class="page paper">
+  <h3><span class="day">Thursday night</span> — Heber, Utah <span class="wx">&#127769;</span></h3>
+  <div class="cols">
+  <p>For some reason, namely gripping the handlebars for twelve hours, eleven days in a row, or ten, I&rsquo;ve got what I guess you would call tendinitis. Just riding the bike is quite a task, not to mention dialing a phone — I&rsquo;m hoping it goes away. Well, I up and did it today. Yep I parted company with Tim. Here&rsquo;s my story. The guy was really getting on my nerves — too hard to explain here. I figured why should I be stuck with a guy I don&rsquo;t get along with when it wasn&rsquo;t my idea to bring him along. I&rsquo;m sure he sensed that I might split, because he was doing his damnedest to keep up. About forty miles down the road out of Delta he got a flat tire. I gave him a piece of paper with my mom&rsquo;s address &amp; phone number telling him I might be going on and that he could probably get in touch through my mom. Strangely he replied that he didn&rsquo;t think we&rsquo;d get separated because his pace was the same as mine. So, I took off and about five miles down the road he drives by in the back of a pick-up. Not delighted by this turn of events I pressed on. About twenty miles further I pulled into a gas station to refuel the water bottles (at no charge). The lady working there informed me that he had been dropped off and left about fifteen minutes before. Really wanting to go it alone &amp; part with Tim, I wasn&rsquo;t pleased. Ten miles from Provo I ran into him at a gas station putting some funky tire sealer in his rear tire. I was tempted to drive on by but thought that to be a little harsh. I asked him why he didn&rsquo;t just patch the tire to which he gave a jerky reply that I didn&rsquo;t catch. I&rsquo;m quite certain he knew that I was ready to put in some distance, particularly from him, and didn&rsquo;t want to lose time patching the tire. My primary consideration was this: he was a big whiner &amp; complainer. It seemed every morning he would procrastinate on the idea of going. Basically, I think he wanted to quit or at least hitch a few rides over the hard parts. The bottom line is that I felt if I stayed with him he would manage to bring me down too. I honestly feel he never would have made it this far. Certainly at Donner&rsquo;s pass he would have caught a ride up had I not been here. He definitely added a few days to my time as it is. I have no doubt that I would have been in Tahoe City the third day had it not been for waiting on him. So, I put in a good two miles and I&rsquo;m setting up camp along, or rather off, the side of the road. I tried calling a few people but no one was home. Tomorrow, with a lot of effort I might be out of Utah and in Colorado. It&rsquo;s a full moon and the weather is very pleasant tonight.</p>
+  </div>
+  <div class="timometer"><span>Tim-O-Meter</span><div class="track"><div class="fill" style="width:100%"></div></div><span>&ldquo;Yep, I parted company with Tim.&rdquo;</span></div>
+</section>
+
+<!-- 21 · PROVO -->
+<section class="page paper">
+  <h3><span class="day">28 miles out of Provo</span> — the mountains <span class="wx">&#127769; &#127956;</span></h3>
+  <div class="cols">
+  <p>I had to climb along a river from a reservoir above Provo. The ride was a pretty one, but it got dark about half-way through and wasn&rsquo;t that safe. I&rsquo;m definitely going to try &amp; do less riding at night. Provo isn&rsquo;t that exciting, either is BYU. However, the stadium was impressive with a huge &amp; sheer mountain in the backdrop. I walked into a pizza joint to catch a bit of the BYU-Boston College game in Boston, but I couldn&rsquo;t see the bike so I moved on. I did see one play and it involved Glenn Kielszki latching a Robbie Bosco pass. BYU went on to win. Good night.</p>
+  </div>
+  <div style="display:flex;gap:18px;margin-top:18px;">
+    <div class="slot" style="flex:1;"><div class="in"><span class="cam">&#128247;</span>PHOTO SLOT<br>Provo canyon / the reservoir</div></div>
+    <div class="slot" style="flex:1;"><div class="in"><span class="cam">&#128247;</span>PHOTO SLOT<br>The road out of Utah</div></div>
+  </div>
+</section>
+
+<!-- 22 · END -->
+<section class="page paper divider">
+  <div class="divnum">End of Part One</div>
+  <div class="divtitle" style="font-size:44px;">The towel is still<br>in the bag.</div>
+  <div class="rule"></div>
+  <div class="divsub">The rock is still headed for the Atlantic.<br>Colorado is next.</div>
+  <div style="max-width:300px;margin:26px auto 0;" class="slot"><div class="in"><span class="cam">&#128247;</span>PHOTO SLOT<br>Waiting for Danny&rsquo;s pictures<br><span style="font-size:12.5px;">(big empty frame — the road, the bike, the journal itself)</span></div></div>
+  <div class="end">Transcribed from the handwritten journal of Danny Regan &middot; spelling gently proofed &middot; margin notes kept in brackets</div>
+</section>
+
+</div>
+<div class="nav">
+  <button id="prev">&#8592; Prev</button>
+  <span class="counter" id="counter">1 / 22</span>
+  <button id="next">Next &#8594;</button>
+</div>
+<script>
+var pages=[].slice.call(document.querySelectorAll('.page'));
+var i=0;
+function show(n){i=Math.max(0,Math.min(pages.length-1,n));
+ pages.forEach(function(p,k){p.classList.toggle('active',k===i);});
+ document.getElementById('counter').textContent=(i+1)+' / '+pages.length;
+ pages[i].scrollTop=0;}
+document.getElementById('next').onclick=function(){show(i+1);};
+document.getElementById('prev').onclick=function(){show(i-1);};
+document.addEventListener('keydown',function(e){
+ if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){show(i+1);}
+ if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}});
+document.getElementById('deck').addEventListener('click',function(e){
+ if(e.target.closest('button'))return;
+ var x=e.clientX/window.innerWidth;
+ if(x>0.66)show(i+1);else if(x<0.33)show(i-1);});
+</script>
+</body>
+</html>
