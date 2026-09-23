@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Fishing Rigs You Should Know — Baja Troy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#17100a;
+    --bg2:#2b1c10;
+    --parchment:#f6e8c9;
+    --parchment2:#efdcb4;
+    --ink:#3a2a16;
+    --ink-soft:#5d452a;
+    --sunset:#e8873a;
+    --sunset2:#d4692a;
+    --gold:#d9a84e;
+    --rust:#a34d28;
+    --sage:#8ba888;
+    --sky:#7fb3d5;
+    --shadow:0 20px 60px rgba(0,0,0,.55);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Bitter',Georgia,serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(232,135,58,.18), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(163,77,40,.22), transparent 60%),
+      linear-gradient(160deg,var(--bg1),var(--bg2));
+    color:var(--parchment);
+    overflow:hidden;
+  }
+
+  /* ===== progress bar ===== */
+  #progress{position:fixed;top:0;left:0;height:6px;width:0%;z-index:60;
+    background:linear-gradient(90deg,var(--sunset2),var(--gold));
+    transition:width .35s ease;box-shadow:0 0 12px rgba(232,135,58,.7);}
+
+  /* ===== slide stage ===== */
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:56px 18px 84px;}
+  .slide{
+    display:none;
+    width:min(1120px,100%);
+    max-height:100%;
+    overflow-y:auto;
+    background:linear-gradient(175deg,var(--parchment),var(--parchment2));
+    color:var(--ink);
+    border-radius:18px;
+    border:3px solid var(--gold);
+    outline:2px solid rgba(58,42,22,.35);
+    outline-offset:-9px;
+    box-shadow:var(--shadow);
+    padding:clamp(26px,4vw,56px);
+    animation:fadeUp .45s ease;
+    scrollbar-width:thin;
+  }
+  .slide.active{display:block}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  /* ===== typography ===== */
+  .kicker{font-size:clamp(.8rem,1.4vw,1rem);letter-spacing:.28em;text-transform:uppercase;
+    color:var(--rust);font-weight:800;margin-bottom:.6em}
+  h1{font-family:'Rye',serif;font-weight:400;font-size:clamp(2rem,5vw,3.6rem);line-height:1.12;color:var(--ink);margin-bottom:.35em}
+  h2{font-family:'Rye',serif;font-weight:400;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;color:var(--ink);margin-bottom:.4em}
+  h3{font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--rust);margin:1em 0 .4em;font-weight:800}
+  p,li{font-size:clamp(1.05rem,1.9vw,1.3rem);line-height:1.55;color:var(--ink-soft)}
+  p{margin-bottom:.8em}
+  ul{margin:.4em 0 1em 1.3em}
+  li{margin-bottom:.45em}
+  strong{color:var(--ink)}
+  .lead{font-size:clamp(1.2rem,2.3vw,1.5rem);color:var(--ink)}
+  .center{text-align:center}
+
+  /* ===== badges & chips ===== */
+  .phase-badge{display:inline-block;background:var(--rust);color:var(--parchment);
+    font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    font-size:clamp(.75rem,1.3vw,.95rem);padding:.45em 1em;border-radius:999px;margin-bottom:1em;
+    box-shadow:0 3px 0 rgba(58,42,22,.35)}
+  .chips{display:flex;flex-wrap:wrap;gap:.5em;margin:.6em 0 1em}
+  .chip{background:rgba(163,77,40,.12);border:2px solid var(--rust);color:var(--rust);
+    padding:.3em .85em;border-radius:999px;font-weight:600;font-size:clamp(.9rem,1.6vw,1.1rem)}
+
+  /* ===== Troy's words ===== */
+  .troy-says{
+    margin-top:1.4em;border-left:6px solid var(--sunset2);
+    background:rgba(232,135,58,.13);
+    padding:1em 1.2em;border-radius:0 12px 12px 0;
+  }
+  .troy-says .tag{display:block;font-size:.8em;letter-spacing:.2em;text-transform:uppercase;
+    font-weight:800;color:var(--sunset2);margin-bottom:.5em}
+  .troy-says p{font-style:italic;color:#6b4a26;margin-bottom:.4em}
+
+  /* ===== callout (Troy's principles) ===== */
+  .callout{
+    margin:1.2em 0;padding:1.1em 1.3em;border:3px double var(--rust);border-radius:14px;
+    background:rgba(217,168,78,.16);
+  }
+  .callout p{margin:0;font-weight:600;color:var(--rust)}
+  .callout p + p{margin-top:.7em}
+
+  /* ===== title card ===== */
+  .poster{ text-align:center; }
+  .poster .rule{width:120px;height:4px;background:var(--rust);margin:1.1em auto;border-radius:2px}
+  .poster .byline{font-size:clamp(1.15rem,2.4vw,1.6rem);color:var(--ink);font-weight:600}
+  .poster .aka{display:inline-block;margin-top:.7em;padding:.4em 1.2em;border:3px double var(--rust);
+    border-radius:10px;font-family:'Rye',serif;font-size:clamp(1.2rem,2.6vw,1.8rem);color:var(--rust);background:rgba(217,168,78,.15)}
+  .poster .song{margin-top:1.4em;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--ink-soft)}
+  .poster .song em{font-weight:800;color:var(--rust)}
+
+  /* ===== media ===== */
+  .poem-wrap{text-align:center;margin:1.2em auto}
+  .poem-img{max-height:52vh;max-width:100%;border:4px solid var(--gold);border-radius:12px;box-shadow:0 10px 30px rgba(58,42,22,.35)}
+  .poem-cap{margin-top:.7em;font-size:.95em;color:var(--ink-soft);font-style:italic}
+  .video-frame{margin:1.2em auto;max-width:840px;border:4px solid var(--gold);border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(58,42,22,.3);background:#20140b}
+  .video-frame .ratio{position:relative;width:100%;aspect-ratio:16/9}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* ===== YouTube play button ===== */
+  .play-btn{display:block;position:relative;max-width:720px;margin:1.2em auto;border:4px solid var(--gold);
+    border-radius:14px;overflow:hidden;box-shadow:0 10px 30px rgba(58,42,22,.35);background:#20140b;text-decoration:none}
+  .play-btn img{display:block;width:100%;height:auto;opacity:.94}
+  .play-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .play-badge span{width:clamp(64px,10vw,96px);height:clamp(64px,10vw,96px);border-radius:50%;
+    background:rgba(163,77,40,.94);color:#f6e8c9;display:flex;align-items:center;justify-content:center;
+    font-size:clamp(26px,4vw,40px);padding-left:.18em;box-shadow:0 6px 20px rgba(0,0,0,.55);
+    border:3px solid var(--gold);transition:transform .15s ease,background .15s ease}
+  .play-btn:hover .play-badge span{background:var(--sunset2);transform:scale(1.07)}
+  .play-cap{text-align:center;font-weight:600;color:var(--rust);font-size:clamp(1rem,1.8vw,1.2rem);margin-top:.4em}
+  .watch-row{text-align:center;margin-top:.9em}
+  .watch-link{display:inline-block;color:var(--rust);font-weight:600;font-size:clamp(1rem,1.8vw,1.15rem);text-decoration:none;border-bottom:2px solid var(--rust);padding-bottom:2px}
+  .pull{font-size:clamp(1.3rem,2.6vw,1.75rem);font-style:italic;color:var(--rust);font-weight:600;line-height:1.4;margin:1em 0;text-align:center}
+
+  /* ===== lyrics ===== */
+  .lyrics{columns:2;column-gap:2.5em;margin-top:.5em}
+  .stanza{break-inside:avoid;margin-bottom:1.1em}
+  .stanza h4{font-size:.95em;letter-spacing:.22em;color:var(--rust);font-weight:800;margin-bottom:.45em}
+  .stanza p{font-size:clamp(1rem,1.6vw,1.15rem);line-height:1.5;margin:0;color:var(--ink-soft)}
+  .stanza.chorus p{font-style:italic}
+  @media (max-width:700px){.lyrics{columns:1}}
+
+  /* ===== example mapping ===== */
+  .map{width:100%;border-collapse:collapse;margin:1em 0;font-size:clamp(.95rem,1.7vw,1.12rem)}
+  .map th{background:var(--rust);color:var(--parchment);text-align:left;padding:.6em .9em}
+  .map td{padding:.6em .9em;border-bottom:2px solid rgba(163,77,40,.25);vertical-align:top;color:var(--ink-soft)}
+  .map tr:nth-child(even) td{background:rgba(217,168,78,.14)}
+  .map td:first-child{font-style:italic}
+  .map .arrow{color:var(--rust);font-weight:800;text-align:center;width:2em}
+
+  /* ===== soundscape table ===== */
+  table.snd{width:100%;border-collapse:collapse;margin:1em 0;font-size:clamp(.95rem,1.7vw,1.15rem)}
+  table.snd th{background:var(--rust);color:var(--parchment);text-align:left;padding:.7em .9em;letter-spacing:.05em}
+  table.snd td{padding:.7em .9em;border-bottom:2px solid rgba(163,77,40,.25);vertical-align:top;color:var(--ink-soft)}
+  table.snd tr:nth-child(even) td{background:rgba(217,168,78,.14)}
+  table.snd td:first-child{font-weight:800;color:var(--ink)}
+
+  /* ===== loop diagram ===== */
+  .loop{display:flex;flex-wrap:wrap;gap:.7em;align-items:center;justify-content:center;margin:1.2em 0}
+  .loop .step{background:var(--ink);color:var(--parchment);padding:.7em 1.1em;border-radius:12px;
+    font-weight:600;font-size:clamp(.95rem,1.8vw,1.15rem);box-shadow:0 4px 0 rgba(0,0,0,.25)}
+  .loop .arrow{color:var(--rust);font-weight:800;font-size:1.4em}
+
+  /* ===== controls ===== */
+  #controls{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px;background:linear-gradient(0deg,rgba(23,16,10,.95),rgba(23,16,10,0));}
+  .btn{cursor:pointer;border:2px solid var(--gold);background:rgba(58,42,22,.85);color:var(--parchment);
+    font-family:'Bitter',serif;font-weight:600;font-size:1rem;padding:.55em 1.1em;border-radius:999px;
+    transition:transform .12s ease,background .12s ease}
+  .btn:hover{background:var(--rust);transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--sunset);outline-offset:2px}
+  #counter{min-width:86px;text-align:center;font-weight:600;color:var(--gold);font-size:1rem}
+  .hint{position:fixed;top:14px;right:16px;z-index:50;font-size:.85rem;color:rgba(246,232,201,.55);text-align:right;line-height:1.5}
+
+  @media (max-width:640px){
+    .hint{display:none}
+    #stage{padding:40px 10px 90px}
+    .btn{font-size:.92rem;padding:.5em .85em}
+  }
+
+.coverlogo{display:block;width:150px;max-width:40%;max-height:22vh;height:auto;object-fit:contain;margin:0 auto 14px;border:3px solid var(--gold);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.slidelogo{position:fixed;bottom:62px;left:50%;transform:translateX(-50%);width:80px;height:auto;border:2px solid var(--gold);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.5);z-index:60;display:block;}
+@media (max-width:640px){.slidelogo{width:62px;bottom:66px;}.coverlogo{width:120px;}}
+
+/* ===== BIG TOP LOGO — cover slide only, clearance fixed (LOCKED) ===== */
+.biglogo{position:fixed;top:10px;left:50%;transform:translateX(-50%);height:clamp(64px,12vh,120px);width:auto;border:3px solid var(--gold);border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:55;display:none}
+#stage.first{padding-top:calc(clamp(64px,12vh,120px) + 44px)}
+@media (max-width:640px){.biglogo{height:60px}#stage.first{padding-top:112px}}
+</style>
+</head>
+<body>
+<img class="slidelogo" id="slidelogo" src="cowboy-logo.jpg" alt="Baja Troy logo">
+<img class="biglogo" id="biglogo" src="cowboy-logo.jpg" alt="Baja Troy logo">
+<div id="progress"></div>
+<div class="hint">← → or click to flip<br>F = fullscreen</div>
+<main id="stage" aria-live="polite">
+
+<section class="slide poster active" data-title="Cover">
+    <div class="kicker">BAJA TROY TUTORIAL</div>
+  <h1>5 FISHING RIGS<br>YOU SHOULD KNOW</h1>
+  <div class="rule"></div>
+  <p class="byline">SECTION: <strong>FRESHWATER &middot; PIERS &middot; SURF</strong></p>
+  <div class="aka">BAJA TROY</div>
+</section>
+
+<section class="slide " data-title="What a Rig Is">
+  <div class="kicker">RIGS &middot; INTRO</div>  <h2>What a Rig Is</h2>  <p class="lead">A rig is simply the way you arrange your line, hook, weight, float, bait, leader, and sometimes a swivel &mdash; so your offering reaches fish in the right place and looks natural when it gets there.</p>  <p>Five rigs in this guide. Learn these and you can fish almost anywhere:</p>  <ul>
+    <li><strong>Texas Rig</strong> &mdash; the weedless bass workhorse</li>
+    <li><strong>Carolina Rig</strong> &mdash; drag the bottom, find the fish</li>
+    <li><strong>Drop Shot</strong> &mdash; the finesse answer</li>
+    <li><strong>High-Low Rig</strong> &mdash; the pier &amp; bottom-catcher</li>
+    <li><strong>Surf / Fish-Finder Rig</strong> &mdash; let &rsquo;em run in the surf</li>
+  </ul>
+  <p class="pull">&ldquo;It doesn&rsquo;t always count where you lay it down; sometimes it&rsquo;s what you&rsquo;re laying down.&rdquo;<br>&mdash; Baja Troy, Est. 1972</p>
+</section>
+
+<section class="slide " data-title="Texas Rig 1/3">
+  <div class="kicker">RIG 1 OF 5 &middot; BASS</div>  <h2>The Texas Rig: The Weedless Workhorse</h2>  <p class="lead">The rig you tie on when bass hide where decent folks don&rsquo;t stick a hook: weeds, brush, flooded timber, dock posts, and laydowns. The hook point tucks into the soft plastic, so it comes through cover that would salad-bar a normal jighead.</p>  <div class="chips">
+    <span class="chip">12&ndash;20 lb fluoro or mono</span>
+    <span class="chip">30&ndash;50 lb braid for heavy cover</span>
+    <span class="chip">Bullet weight 1/8&ndash;1/2 oz</span>
+    <span class="chip">Bead + optional bobber stop</span>
+    <span class="chip">3/0&ndash;5/0 offset or EWG hook</span>
+    <span class="chip">Worm, craw, or creature bait</span>
+  </div>  <div class="watch-row" style="margin-top:1.2em"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4900825&v=78182&q=584100&r=2593501" target="_blank">GET THIS GEAR AT TIDEWE &rarr;</a></div>
+  <div class="watch-row"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4894158&v=89509&q=580111&r=2593501" target="_blank">GET FISHING GEAR AT PISCIFUN &rarr;</a></div>
+  <p class="poem-cap" style="margin-top:.6em">Gear links support Baja Troy Reviews &mdash; I earn a small commission at no extra cost to you.</p>
+</section>
+
+<section class="slide " data-title="Texas Rig Diagram">
+    <div class="kicker">RIG 1 OF 5 &middot; BASS</div>
+    <h2>Texas Rig</h2>
+  <div class="poem-wrap">
+    <img class="poem-img" src="texas-rig.jpg" alt="Texas Rig rig diagram">
+    <p class="poem-cap">THE TEXAS RIG &mdash; bullet weight, offset hook, soft plastic</p>
+  </div>
+</section>
+
+<section class="slide " data-title="Texas Rig 2/3">
+  <div class="kicker">RIG 1 OF 5 &middot; BASS</div>  <h2>Build It</h2>  <ul style="list-style:decimal">
+    <li>Slide the bullet weight on point-first toward the rod tip</li>
+    <li>Add a bead for sound and knot protection</li>
+    <li>Add a bobber stop above the weight if you want it pegged</li>
+    <li>Tie the hook with a Palomar or uni knot</li>
+    <li>Push the hook point into the nose of the bait about 1/4 inch, out, slide the bait up the shank</li>
+    <li>Rotate and reinsert so the bait hangs straight; skin-hook the point to go weedless</li>
+    <li>Test it &mdash; if it twists or spins, redo it</li>
+  </ul>
+</section>
+
+<section class="slide " data-title="Texas Rig 3/3">
+  <div class="kicker">RIG 1 OF 5 &middot; BASS</div>  <h2>Fish It</h2>  <p>Cast or pitch beyond the target. Let it fall on a semi-slack line &mdash; many bites happen on the fall. Hop it once or twice, pause, drag it slow through the cover. When the line ticks, goes heavy, or moves sideways, reel down and set the hook firm.</p>  <div class="troy-says">
+    <span class="tag">Baja Troy Field Tip</span>
+    <p>When the lake looks like a floating salad bar, don&rsquo;t complain about the weeds. That is the bass house. Knock on the front door with a Texas-rigged craw.</p>
+  </div>  <p><strong>Common mistake:</strong> skin-hooking the point too deep. If a normal hookset can&rsquo;t expose it, you&rsquo;re just feeding the fish plastic.</p>
+</section>
+
+<section class="slide " data-title="Carolina Rig 1/2">
+  <div class="kicker">RIG 2 OF 5 &middot; BASS</div>  <h2>The Carolina Rig: Drag the Bottom</h2>  <p class="lead">Your cover-water, drag-the-bottom setup. The weight is separated from the bait so the soft plastic trails naturally behind the sinker. Built for long points, flats, gravel, and broad areas where you&rsquo;re finding fish, not fishing one bush.</p>  <p><strong>Build:</strong> egg or bullet sinker &rarr; bead &rarr; barrel swivel &rarr; 18&ndash;36&Prime; fluorocarbon leader &rarr; offset hook &rarr; lizard, worm, or floating plastic rigged weedless.</p>  <div class="chips">
+    <span class="chip">Windy days</span>
+    <span class="chip">Post-spawn points</span>
+    <span class="chip">Reservoir ledges</span>
+    <span class="chip">Open bottom</span>
+  </div>  <div class="watch-row" style="margin-top:1.2em"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4900825&v=78182&q=584100&r=2593501" target="_blank">GET THIS GEAR AT TIDEWE &rarr;</a></div>
+  <div class="watch-row"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4894158&v=89509&q=580111&r=2593501" target="_blank">GET FISHING GEAR AT PISCIFUN &rarr;</a></div>
+  <p class="poem-cap" style="margin-top:.6em">Gear links support Baja Troy Reviews &mdash; I earn a small commission at no extra cost to you.</p>
+</section>
+
+<section class="slide " data-title="Carolina Rig Diagram">
+    <div class="kicker">RIG 2 OF 5 &middot; BASS</div>
+    <h2>Carolina Rig</h2>
+  <div class="poem-wrap">
+    <img class="poem-img" src="carolina-rig.jpg" alt="Carolina Rig rig diagram">
+    <p class="poem-cap">THE CAROLINA RIG &mdash; egg sinker, bead, swivel, leader</p>
+  </div>
+</section>
+
+<section class="slide " data-title="Carolina Rig 2/2">
+  <div class="kicker">RIG 2 OF 5 &middot; BASS</div>  <h2>Carolina: Field Notes</h2>  <div class="troy-says">
+    <span class="tag">Baja Troy Field Tip</span>
+    <p>The Carolina rig is a search tool. Drag 100 yards of flat and only one 10-foot stretch produces bites? Congratulations &mdash; you found the fish. Now slow down and work that stretch.</p>
+  </div>  <p><strong>Common mistake:</strong> fishing it like a Texas rig. The Carolina wants a slow drag and long pauses, not constant hopping.</p>  <p><strong>Strength:</strong> covers water and finds fish. <strong>Weakness:</strong> not for thick cover &mdash; that&rsquo;s Texas rig country.</p>
+</section>
+
+<section class="slide " data-title="Drop Shot 1/2">
+  <div class="kicker">RIG 3 OF 5 &middot; FINESSE</div>  <h2>The Drop Shot: The Finesse Answer</h2>  <p class="lead">For picky, pressured, suspended, or deep fish. The weight sits <em>below</em> the hook, holding the bait up off the bottom where fish can see it without eating rocks.</p>  <p><strong>Build:</strong> tie a Palomar to the drop-shot hook leaving a long tag &rarr; run the tag back through the hook eye so the hook stands out horizontal &rarr; clip the weight 10&ndash;36&Prime; below (18&ndash;20&Prime; is the baseline) &rarr; nose-hook a small finesse worm or minnow.</p>  <div class="chips">
+    <span class="chip">Clear water</span>
+    <span class="chip">Deep lakes</span>
+    <span class="chip">Docks &amp; rock piles</span>
+    <span class="chip">Tough bites after pressure</span>
+  </div>  <div class="watch-row" style="margin-top:1.2em"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4900825&v=78182&q=584100&r=2593501" target="_blank">GET THIS GEAR AT TIDEWE &rarr;</a></div>
+  <div class="watch-row"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4894158&v=89509&q=580111&r=2593501" target="_blank">GET FISHING GEAR AT PISCIFUN &rarr;</a></div>
+  <p class="poem-cap" style="margin-top:.6em">Gear links support Baja Troy Reviews &mdash; I earn a small commission at no extra cost to you.</p>
+</section>
+
+<section class="slide " data-title="Drop Shot Diagram">
+    <div class="kicker">RIG 3 OF 5 &middot; FINESSE</div>
+    <h2>Drop Shot</h2>
+  <div class="poem-wrap">
+    <img class="poem-img" src="drop-shot-rig.jpg" alt="Drop Shot rig diagram">
+    <p class="poem-cap">THE DROP SHOT &mdash; hook above, weight below</p>
+  </div>
+</section>
+
+<section class="slide " data-title="Drop Shot 2/2">
+  <div class="kicker">RIG 3 OF 5 &middot; FINESSE</div>  <h2>Drop Shot: How to Fish It</h2>  <p>Cast or drop straight down. Let the weight touch bottom, reel to a slight bow, then shake the bait gently <em>without</em> dragging the weight. Pause. Move a foot or two. Pause again. Dead-stick, shake, drag a little, pause.</p>  <div class="troy-says">
+    <span class="tag">Baja Troy Field Tip</span>
+    <p>When the bite is tough, the drop shot is how you ask the fish a polite question instead of kicking their door in. Polite catches fish on hard days.</p>
+  </div>  <p><strong>Common mistake:</strong> moving the weight instead of the bait. The weight anchors; the bait dances. Drag the weight around and you just spooked the neighborhood.</p>
+</section>
+
+<section class="slide " data-title="High-Low Rig 1/2">
+  <div class="kicker">RIG 4 OF 5 &middot; SALTWATER</div>  <h2>The High-Low Rig: Pier &amp; Bottom-Catcher</h2>  <p class="lead">Two baited hooks fish above a bottom sinker, putting bait at two heights while the setup stays anchored. A Southern California pier classic.</p>  <p><strong>Build:</strong> 20&ndash;40 lb leader &rarr; dropper loop 12&ndash;18&Prime; above the end &rarr; second dropper loop above that &rarr; hooks on the loops &rarr; sinker clip at the bottom.</p>  <div class="chips">
+    <span class="chip">Surfperch &amp; croaker</span>
+    <span class="chip">Corbina</span>
+    <span class="chip">Mackerel &amp; smelt</span>
+    <span class="chip">Rockfish &amp; whitefish</span>
+    <span class="chip">Piers, jetties, harbor walls</span>
+  </div>  <div class="watch-row" style="margin-top:1.2em"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4900825&v=78182&q=584100&r=2593501" target="_blank">GET THIS GEAR AT TIDEWE &rarr;</a></div>
+  <div class="watch-row"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4894158&v=89509&q=580111&r=2593501" target="_blank">GET FISHING GEAR AT PISCIFUN &rarr;</a></div>
+  <p class="poem-cap" style="margin-top:.6em">Gear links support Baja Troy Reviews &mdash; I earn a small commission at no extra cost to you.</p>
+</section>
+
+<section class="slide " data-title="High-Low Rig Diagram">
+    <div class="kicker">RIG 4 OF 5 &middot; SALTWATER</div>
+    <h2>High-Low Rig</h2>
+  <div class="poem-wrap">
+    <img class="poem-img" src="high-low-rig.jpg" alt="High-Low Rig rig diagram">
+    <p class="poem-cap">THE HIGH-LOW RIG &mdash; two hooks above the sinker</p>
+  </div>
+</section>
+
+<section class="slide " data-title="High-Low Rig 2/2">
+  <div class="kicker">RIG 4 OF 5 &middot; SALTWATER</div>  <h2>High-Low: Field Notes</h2>  <div class="troy-says">
+    <span class="tag">Baja Troy Field Tip</span>
+    <p>On a busy pier, keep casts short, straight, and under control. The high-low rig catches fish &mdash; and it will absolutely catch a stranger&rsquo;s rod tip, a stroller, or somebody&rsquo;s nachos if you fish it sloppy.</p>
+  </div>  <p><strong>Bait it:</strong> squid strips, shrimp, mussel, sand crabs, or legal local bait. Match hook to bait, bait to fish.</p>  <p><strong>Common mistake:</strong> hooks too big for the bait. Big hooks feed the bait-stealers; right-sized hooks catch the fish.</p>
+</section>
+
+<section class="slide " data-title="Surf / Fish-Finder 1/2">
+  <div class="kicker">RIG 5 OF 5 &middot; SURF</div>  <h2>The Surf / Fish-Finder Rig: Let &rsquo;Em Run</h2>  <p class="lead">The sinker slides free on the main line so a fish picks up the bait with less resistance &mdash; it doesn&rsquo;t feel the weight until it&rsquo;s already hooked. Also called the surf rig or fish-finder rig &mdash; same rig, two names.</p>  <p><strong>Build:</strong> sinker slide &rarr; pyramid or sputnik sinker &rarr; bead &rarr; barrel swivel &rarr; 18&ndash;36&Prime; fluorocarbon leader &rarr; hook matched to bait. That&rsquo;s the whole rig.</p>  <div class="chips">
+    <span class="chip">Croaker &amp; corbina</span>
+    <span class="chip">Rays &amp; sharks where legal</span>
+    <span class="chip">Striped bass</span>
+    <span class="chip">Bigger natural bait presentations</span>
+  </div>  <div class="watch-row" style="margin-top:1.2em"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4900825&v=78182&q=584100&r=2593501" target="_blank">GET THIS GEAR AT TIDEWE &rarr;</a></div>
+  <div class="watch-row"><a class="watch-link" rel="sponsored" href="https://www.awin1.com/cread.php?s=4894158&v=89509&q=580111&r=2593501" target="_blank">GET FISHING GEAR AT PISCIFUN &rarr;</a></div>
+  <p class="poem-cap" style="margin-top:.6em">Gear links support Baja Troy Reviews &mdash; I earn a small commission at no extra cost to you.</p>
+</section>
+
+<section class="slide " data-title="Surf / Fish-Finder Diagram">
+    <div class="kicker">RIG 5 OF 5 &middot; SURF</div>
+    <h2>Surf / Fish-Finder</h2>
+  <div class="poem-wrap">
+    <img class="poem-img" src="fish-finder-rig.jpg" alt="Surf / Fish-Finder rig diagram">
+    <p class="poem-cap">THE SURF / FISH-FINDER RIG &mdash; sliding sinker, free-running bait</p>
+  </div>
+</section>
+
+<section class="slide " data-title="Surf / Fish-Finder 2/2">
+  <div class="kicker">RIG 5 OF 5 &middot; SURF</div>  <h2>Surf: Read the Water</h2>  <p>Cast into the trough between sandbars or the edge of a bar &mdash; that&rsquo;s the grocery lane. Use just enough sinker to hold; if the current can&rsquo;t move the bait, it looks dead.</p>  <div class="troy-says">
+    <span class="tag">Baja Troy Field Tip</span>
+    <p>In the surf, the fish are often cruising the trough between the sandbars &mdash; not the dry beach and not the horizon. Learn to read the water, then put the bait in the grocery lane.</p>
+  </div>  <p><strong>Common mistake:</strong> too much weight. A bait pinned to the sand like a paperweight catches nothing but sunburn.</p>
+  <p class="pull">&ldquo;Don&rsquo;t give up &mdash; rig up.&rdquo;<br>&mdash; Baja Troy, Est. 1972</p>
+</section>
+
+<section class="slide " data-title="Closing">
+  <div class="kicker">CLOSING</div>  <h2>Tie One On</h2>  <p>Five rigs, tied right, will cover more water than a tackle box full of hopes. Pick the rig that matches the cover, fish it slow, and let the rig do its job.</p>
+  <!-- VIDEO SLOT: paste your YouTube link after posting + put thumbnail at logos/youtube-thumb.jpg -->
+  <a class="play-btn" href="YOUR-YOUTUBE-LINK-HERE" target="_blank" rel="noopener">
+    <img src="youtube-character.jpg" alt="Video thumbnail">
+    <span class="play-badge"><span>&#9658;</span></span>
+  </a>
+  <p class="play-cap">WATCH THE FULL VIDEO ON YOUTUBE</p>  <div class="rule" style="margin:1.2em auto"></div>
+<div class="center">
+    <div class="kicker">FIND BAJA TROY</div>
+    <div class="watch-row"><a class="watch-link" href="https://youtube.com/@bajatroyreviews?si=i5xCQ3X9RORUvbu6" target="_blank" rel="noopener">YOUTUBE &mdash; @BAJATROYREVIEWS</a></div>
+    <div class="watch-row"><a class="watch-link" href="https://www.facebook.com/share/19XtBqNwHX/" target="_blank" rel="noopener">FACEBOOK &mdash; Baja Troy Reviews</a></div>
+    <div class="watch-row"><a class="watch-link" href="https://www.tiktok.com/@jonnybaja?_r=1&amp;_t=ZT-99ypWewcscH" target="_blank" rel="noopener">TIKTOK &mdash; @jonnybaja</a></div>
+    <div class="watch-row"><a class="watch-link" href="https://bajatroyreviews-svg.github.io" target="_blank" rel="noopener">GITHUB &mdash; bajatroyreviews-svg</a></div>
+    <div class="watch-row"><a class="watch-link" href="https://beacons.ai/bajatroyreviews" target="_blank" rel="noopener">GEAR AFFILIATES</a></div>
+    <!-- PODCAST: name only, NO link (house rule) -->
+    <div class="watch-row"><span class="watch-link" style="border-bottom:none;cursor:default">PODCAST &mdash; StreamYard</span></div>
+  </div>
+</section>
+
+</main></main></main>
+
+<!-- ============ CONTROLS ============ -->
+<nav id="controls" aria-label="Slide controls">
+  <button class="btn" id="btnPrev" title="Previous (←)">◀ Prev</button>
+  <span id="counter">1 / 10</span>
+  <button class="btn" id="btnNext" title="Next (→)">Next ▶</button>
+  <button class="btn" id="btnFull" title="Fullscreen (F)">⛶ Full</button>
+</nav>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const counter=document.getElementById('counter');
+  const bar=document.getElementById('progress');
+  let i=0;
+
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    counter.textContent=(i+1)+' / '+slides.length;document.getElementById('stage').classList.toggle('first',i===0);var _b=document.getElementById('biglogo');if(_b)_b.style.display=i===0?'block':'none';
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    if(history.replaceState) history.replaceState(null,'','#'+(i+1));
+    document.getElementById('btnPrev').disabled=(i===0);
+    document.getElementById('btnNext').disabled=(i===slides.length-1);
+  }
+  const next=()=>show(i+1), prev=()=>show(i-1);
+
+  document.getElementById('btnNext').onclick=next;
+  document.getElementById('btnPrev').onclick=prev;
+  document.getElementById('btnEnd').onclick=()=>show(slides.length-1);
+
+  function toggleFull(){
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen().catch(()=>{});
+    else document.exitFullscreen();
+  }
+  document.getElementById('btnFull').onclick=toggleFull;
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='Home')show(0);
+    else if(e.key==='End')show(slides.length-1);
+    else if(e.key==='f'||e.key==='F')toggleFull();
+  });
+
+  let tx=0;
+  document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>60){dx<0?next():prev();}
+  },{passive:true});
+
+  const h=parseInt((location.hash||'').slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>
