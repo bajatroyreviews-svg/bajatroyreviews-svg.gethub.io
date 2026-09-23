@@ -1,0 +1,111 @@
+BAJA TROY REVIEWS — TUTORIAL MASTER (LESSON & STORY SLIDE TEMPLATE) v6
+Supersedes v5. Decisions locked 2026-09-23 with Baja Troy. Use for all
+tutorials, lessons, and stories. Clone the locked template file
+"Tutorial Template Baja Troy v2.html" and replace ONLY the content.
+
+================================================================
+1. LOCKED MASTER LAYOUT  (unchanged from v5)
+================================================================
+One slide at a time, centered stage. 6px rust-to-gold progress bar.
+Bottom bar: Previous / Next / Fullscreen ONLY (no jump buttons) +
+centered counter. Arrow keys, click-to-flip, F fullscreen. Hint hidden
+under 640px. Card 1120px max, parchment gradient, gold border, fade-up.
+Dark western gradient background — never a photo.
+
+================================================================
+2. TYPOGRAPHY & COLORS  (unchanged from v5)
+================================================================
+Rye headings, Bitter body. Palette codes unchanged (parchment/gold/rust/
+sunset/ink). Tip box tag reads: "Baja Troy Field Tip" (NOT "TROY SAYS" —
+the author is Baja Troy, not Troy).
+
+================================================================
+3. IMAGES — THE BIG RULE (CHANGED from v5)
+================================================================
+NEVER embed images in the HTML. All reusable art lives in FOLDERS on
+GitHub; pages reference them by path. One file, many pages.
+
+Required folders (next to the HTML files):
+- logos/    cowboy-logo.jpg (brand badge), youtube-thumb.jpg (cover),
+            plus any other brand art (circle badge, YouTube character)
+- rig-pics/ texas-rig.jpg, carolina-rig.jpg, drop-shot-rig.jpg,
+            high-low-rig.jpg, fish-finder-rig.jpg (shared by ALL
+            fishing tutorials)
+
+WHY: photos and logos get reused on every page. One copy in a folder,
+every page draws from it. Change the file once, every page updates.
+GitHub storage is a non-issue (photos are a few hundred KB; 1 GB limit).
+
+AI-GENERATED ART: allowed for diagrams/illustration (Baja Troy generates
+them; they are his property). Keep cloud copies as the vault.
+
+================================================================
+4. BRANDING — LOCKED
+================================================================
+Brand logo = the CIRCULAR COWBOY logo file only. Never substitute,
+crop, or recreate. If the file is missing, STOP and ask.
+
+- BIG LOGO: fixed at TOP OF SCREEN, COVER SLIDE ONLY, with proper
+  clearance (never touches or covers the card). Disappears when the
+  page flips. Implemented as #biglogo + #stage.first padding.
+- SMALL BADGE: fixed above the buttons, EVERY slide, always visible.
+- Branding on every page is the rule. No exceptions.
+
+================================================================
+5. VIDEO — LOCKED (CHANGED from v5)
+================================================================
+NO IFRAMES anywhere. The 16:9 iframe video frame is retired.
+Videos = YouTube play-button LINK (thumbnail + circular play badge,
+opens in new tab). Cover slide holds the video slot; paste the link
+after the video is posted to YouTube.
+
+================================================================
+6. QUOTE SYSTEM — LOCKED (NEW in v6)
+================================================================
+Quote slides are MARKERS, not finished quotes. Marker slide = pull
+quote placeholder + permanent line "- Baja Troy, Est. 1972".
+Workflow: builder flags "want a quote here? subject: ___" -> Baja
+Troy writes it in his voice or says DELETE the slide. NEVER invent
+quotes. Reusable across all decks.
+
+================================================================
+7. LINKS — LOCKED
+================================================================
+Closing slide carries the "FIND BAJA TROY" block (watch-link style):
+YOUTUBE @BAJATROYREVIEWS, FACEBOOK Baja Troy Reviews, TIKTOK @jonnybaja,
+GITHUB bajatroyreviews-svg, GEAR AFFILIATES (capitalized) ->
+beacons.ai/bajatroyreviews. PODCAST: name only (StreamYard), NO link.
+
+================================================================
+8. EXPANSION RULE  (unchanged)
+================================================================
+More content = MORE SLIDES. Never shrink text, never cram, never
+delete, never redesign. Counter updates itself.
+
+================================================================
+8.5 AFFILIATE LINKS — LOCKED (added 2026-09-23)
+================================================================
+Gear slides carry the AFFILIATE SLOT: styled text links only
+(NO third-party banner images). Two links: TIDEWE (Awin v=78182)
+and PISCIFUN (Awin v=89509), both rel="sponsored", opening in a
+new tab. Every slide with affiliate links also carries the
+disclosure line: "Gear links support Baja Troy Reviews — I earn a
+small commission at no extra cost to you." (Required by Awin +
+FTC.) For TikTok videos: flip the branded-content toggle when
+posting. Links stay in for video decks — they become on-screen
+text and drive traffic to the bio link.
+
+================================================================
+9. BEFORE BUILDING — MISSING INFO CHECK  (unchanged, HIGHEST PRIORITY)
+================================================================
+List EVERY missing or unclear item first and STOP. Ask: add it, fix
+it, or skip it. NEVER build first and flag later. One question at a
+time; build only when every question is answered and Baja Troy says go.
+
+================================================================
+10. PRODUCTION RULES  (unchanged unless noted)
+================================================================
+Keep Baja Troy's voice. Short phone-readable paragraphs. No cursive.
+Stock/placeholder text like [STOCK PHOTO NEEDED: ...] only if needed.
+Mobile rules unchanged. (The v5 image-compression-for-embedding rule
+is RETIRED — replaced by the folder rule in section 3.)
