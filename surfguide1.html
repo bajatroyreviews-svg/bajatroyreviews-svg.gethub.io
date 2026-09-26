@@ -10,11 +10,9 @@ body{font-family:'Bitter',Georgia,serif;color:var(--ink);background:
  radial-gradient(1100px 800px at 85% -5%, rgba(232,135,58,.18), transparent 60%),
  radial-gradient(1000px 800px at -5% 105%, rgba(163,77,40,.22), transparent 60%),
  linear-gradient(160deg,var(--bg1),var(--bg2));overflow:hidden}
-#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:56px 56px 84px}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:56px 56px 122px}
 #progress{position:fixed;top:0;left:0;height:6px;width:0;background:linear-gradient(90deg,var(--rust),var(--gold));transition:width .45s ease;z-index:60;border-radius:0 4px 4px 0}
 #hint{position:fixed;top:14px;right:18px;color:rgba(246,232,201,.55);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;z-index:55}
-#biglogo{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;border:4px solid var(--gold);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5);width:132px;display:none}
-#biglogo.on{display:block}
 #minilogo-fixed{position:fixed;bottom:56px;left:50%;transform:translateX(-50%);z-index:56;width:56px;border:3px solid var(--gold);border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
 #bar{position:fixed;left:0;right:0;bottom:0;height:64px;display:flex;align-items:center;justify-content:center;gap:22px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));z-index:54}
 #bar button{font-family:'Bitter',Georgia,serif;background:var(--ink);color:var(--parchment);border:2px solid var(--gold);border-radius:50%;width:46px;height:46px;font-size:1.05rem;cursor:pointer}
@@ -30,7 +28,6 @@ h2{font-family:'Rye',serif;font-weight:700;font-size:clamp(1.6rem,1rem+1.6vw,2.6
 h3{font-size:clamp(1.15rem,1rem+.6vw,1.5rem);font-weight:700;color:var(--rust);margin:22px 0 10px}
 .rule{width:120px;height:5px;background:var(--rust);margin:22px auto;border-radius:3px}
 .byline{font-size:1.05rem;color:var(--ink-soft);margin-top:14px}
-.aka{display:inline-block;margin-top:16px;border:3px double var(--rust);border-radius:10px;padding:8px 22px;font-weight:800;letter-spacing:.22em;color:var(--rust);font-size:.95rem}
 .featured{margin-top:18px;font-size:clamp(1.2rem,1rem+.8vw,1.5rem);font-weight:600;color:var(--ink)}
 .subfeat{margin-top:10px;font-size:1.02rem;color:var(--ink-soft);font-style:italic}
 .lead{font-size:clamp(1.2rem,1.05rem+.5vw,1.5rem);color:var(--ink);line-height:1.5;margin-bottom:14px}
@@ -58,22 +55,22 @@ ul.list li::before{content:"\25C6";color:var(--sunset2);position:absolute;left:0
 .logorow{display:flex;align-items:center;justify-content:center;gap:34px;margin-top:26px}
 .logorow img{height:150px;width:auto;border:4px solid var(--gold);border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.35);background:transparent}
 .logorow img.bare{border:none;box-shadow:none;height:165px}
-@media(max-width:640px){#hint{display:none}#stage{padding:40px 40px 90px}#bar{height:56px}#bar button{width:40px;height:40px;font-size:.95rem}#minilogo-fixed{bottom:48px;width:48px}}
+.watchbtn{display:inline-block;font-family:'Bitter',Georgia,serif;background:var(--ink);color:var(--parchment);border:3px solid var(--gold);border-radius:14px;padding:18px 46px;font-size:1.3rem;font-weight:800;letter-spacing:.14em;text-decoration:none;margin-top:10px}
+.watchbtn:hover{background:var(--rust)}
+@media(max-width:640px){#hint{display:none}#stage{padding:40px 40px 128px}#bar{height:56px}#bar button{width:40px;height:40px;font-size:.95rem}#minilogo-fixed{bottom:48px;width:48px}}
 </style></head><body>
 <div id="progress"></div>
 <div id="hint">arrows or click to flip / F = fullscreen</div>
-<img id="biglogo" src="cowboy-logo.jpg" alt="Baja Troy logo">
 <img id="minilogo-fixed" src="cowboy-logo.jpg" alt="Baja Troy logo">
 <div id="stage"><section class="slide"><div class="card">
 <div class="kicker">BEGINNER SURF GUIDE &bull; TUTORIAL 1</div>
+<div style="margin:2px 0 20px"><img src="cowboy-logo.jpg" alt="Baja Troy logo" style="width:140px;border:4px solid var(--gold);border-radius:12px;box-shadow:0 10px 26px rgba(0,0,0,.35)"></div>
 <h1>PICK YOUR FIRST SURFBOARD</h1>
 <div class="rule"></div>
 <div class="byline">by Baja Troy</div>
-<div class="aka">AKA BAJATROY</div>
 <div class="featured">More waves. More fun. Start with the right board.</div>
 <div class="subfeat">Guide 1: Surfboard Selection &mdash; step one in the Beginner Surf Guide series.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">START HERE</div>
 <h2>What This Guide Covers</h2>
 <p class="lead">More waves. More fun. Start with the right board.</p>
 <div class="media"><img src="surf-cover.jpg" alt="Two beginners heading in &mdash; sunny day, small waves, the right place to start."><div class="cap">Two beginners heading in &mdash; sunny day, small waves, the right place to start.</div></div>
@@ -81,68 +78,60 @@ ul.list li::before{content:"\25C6";color:var(--sunset2);position:absolute;left:0
 <div class="logorow" style="margin-top:26px"><img class="bare" src="trailhead-logo.png" alt="Trailhead Commerce"></div>
 <div class="owner">Owned and operated by Trailhead Commerce</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">START HERE</div>
 <h2>Do NOT Buy the Cool-Looking Board First</h2>
 <div class="media"><img src="surfboard-sizes.jpg" alt="The best first board is usually the one that helps you catch the most waves&mdash;not the smallest board on the rack."><div class="cap">The best first board is usually the one that helps you catch the most waves&mdash;not the smallest board on the rack.</div></div>
 <p class="body">Most new surfers see shortboards in surf videos and assume that is where they should begin. But a small performance board is harder to paddle, harder to balance on, and harder to catch waves with.</p><p class="body">Your first board should make learning easier. Start with a board that gives you stability, float, and enough paddle power to catch smaller waves. Surfing becomes a lot more fun when you are actually standing up instead of watching every wave pass by.</p>
 <ul class="list"><li>Bigger boards are more stable</li><li>More float helps you paddle and catch waves</li><li>Wider boards are easier to stand on</li><li>Your first board should help you learn&mdash;not impress strangers</li></ul>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">START HERE &bull; BAJA TROY&rsquo;S TAKE</div>
 <h2>Do NOT Buy the Cool-Looking Board First</h2>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;The surfboard that gets you into the most waves is the cool board. Everything else is just parking-lot decoration.&rdquo;</div></div>
+<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;The surfboard that gets you into the most waves is the cool board.&rdquo;</div></div>
 <div class="pull">&ldquo;Catch waves first. Upgrade later.&rdquo;</div>
 <div class="callout">Choose a beginner-friendly board for your ability, size, and local conditions. If you are renting or buying, ask a reputable local surf shop or instructor to help match the board to you.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">THE SIMPLE ANSWER</div>
 <h2>Start Big, Wide, and Floaty</h2>
 <div class="media"><img src="foam-surfboard.jpg" alt="For many new adult surfers, a larger soft-top gives the stability and buoyancy needed to learn faster."><div class="cap">For many new adult surfers, a larger soft-top gives the stability and buoyancy needed to learn faster.</div></div>
-<p class="body">For most complete beginners, a soft-top board around 8 feet or longer is a strong place to start. It is not a hard rule&mdash;your height, weight, athletic background, swimming confidence, and the waves you surf all matter&mdash;but more board usually makes the learning stage easier.</p><p class="body">A larger board paddles more efficiently, catches waves earlier, and gives you a wider, more stable platform when it is time to stand up. Soft construction also makes the board more forgiving around other people in the water than a hard fiberglass board.</p>
+<p class="body">For most adult learners, a softer, wider soft-top board around 8 feet or longer is the ideal place to start &mdash; more comfort in the water, and a safer, more forgiving board while you learn. It is not a hard rule&mdash;your height, weight, athletic background, swimming confidence, and the waves you surf all matter&mdash;but more board usually makes the learning stage easier.</p><p class="body">A larger board paddles more efficiently, catches waves earlier, and gives you a wider, more stable platform when it is time to stand up. Soft construction also makes the board more forgiving around other people in the water than a hard fiberglass board.</p>
 <ul class="list"><li>Soft-top or foam construction for a forgiving first board</li><li>About 8 feet or longer for many adult beginners</li><li>A wide outline for stability</li><li>Plenty of volume for float and easier paddling</li><li>Bigger may be better if you are a larger rider or surf smaller, slower waves</li></ul>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">THE SIMPLE ANSWER &bull; BAJA TROY&rsquo;S TAKE</div>
 <h2>Start Big, Wide, and Floaty</h2>
 <div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Do not buy a board that wants you to be a better surfer than you are. Buy the board that helps you become one.&rdquo;</div></div>
 <div class="pull">&ldquo;More foam. More float. More waves.&rdquo;</div>
 <div class="callout">Board sizing is personal. An instructor or reputable shop can help account for your body size, fitness, experience, and the waves at your local break.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">ONE WORD TO KNOW</div>
 <h2>What Surfboard Volume Means</h2>
 <div class="media"><img src="surf-volume-diagram.jpg" alt="Volume is measured in liters and describes how much float a surfboard has."><div class="cap">Volume is measured in liters and describes how much float a surfboard has.</div></div>
 <p class="body">Surfboard volume is usually measured in liters. In simple terms, it tells you how much water the board displaces and how much float it provides.</p><p class="body">A higher-volume board sits higher in the water, paddles more easily, and catches waves sooner. A lower-volume board is generally more responsive once you know what you are doing, but it takes more skill and stronger paddling to get into waves.</p><p class="body">You do not need to memorize a complicated formula before your first session. Just remember this: as a beginner, extra volume is usually your friend.</p>
 <ul class="list"><li>Higher volume equals more float</li><li>More float helps paddling</li><li>More float helps you catch waves earlier</li><li>Lower-volume boards are usually less forgiving</li><li>Volume is one reason bigger beginner boards work so well</li></ul>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">ONE WORD TO KNOW &bull; BAJA TROY&rsquo;S TAKE</div>
 <h2>What Surfboard Volume Means</h2>
 <div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Volume is not a fancy surf-shop word. It is the difference between catching the wave and watching it ride away without you.&rdquo;</div></div>
 <div class="pull">&ldquo;More volume usually means more opportunity.&rdquo;</div>
 <div class="callout">Do not choose a board by length alone. Compare length, width, thickness, construction, and liters of volume together.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">KNOW THE DIFFERENCE</div>
 <h2>The Main Board Types &mdash; In Plain English</h2>
 <div class="media"><img src="surfboard-types.jpg" alt="Different surfboard shapes suit different skill levels, wave types, and surfing goals."><div class="cap">Different surfboard shapes suit different skill levels, wave types, and surfing goals.</div></div>
 <p class="body">Surfboards come in many shapes, but you only need to know a few basic groups at the beginning.</p><p class="body">Soft-tops are forgiving and commonly used for learning. Longboards are stable and good at catching smaller waves. Funboards and mid-lengths sit between longboards and shortboards, offering a mix of paddle power and maneuverability. Shortboards are designed for quicker turns and steeper waves, but they require more experience.</p><p class="body">Start with the board that matches your current skill&mdash;not the board you hope to ride after years of practice.</p>
 <ul class="list"><li><strong>Soft-top:</strong> Best starting point for many first-time surfers</li><li><strong>Longboard:</strong> Stable, easy paddling, great for smaller waves</li><li><strong>Funboard or mid-length:</strong> A step toward more maneuverability</li><li><strong>Shortboard:</strong> More performance, less forgiveness</li><li><strong>Fish:</strong> Wide and fast, but generally better after basic skills are solid</li></ul>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">KNOW THE DIFFERENCE &bull; BAJA TROY&rsquo;S TAKE</div>
 <h2>The Main Board Types &mdash; In Plain English</h2>
 <div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Every board has a job. Your first job is simple: paddle out safely, catch waves, stand up, and have a good time.&rdquo;</div></div>
 <div class="pull">&ldquo;Pick for your skill level, not your surf-movie fantasy.&rdquo;</div>
 <div class="callout">Avoid riding too close to others. A surfboard can cause serious injury&mdash;keep control of your board, do not let go of it when people are nearby, and learn local lineup etiquette before paddling into a crowded break.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">SHOP SMART</div>
 <h2>Your First-Board Checklist</h2>
 <div class="media"><img src="surf-checklist.jpg" alt="A good first-board setup is stable, safe, and matched to the waves you actually plan to surf."><div class="cap">A good first-board setup is stable, safe, and matched to the waves you actually plan to surf.</div></div>
 <p class="body">Before you rent or buy, think about where you will surf most often. Small, mellow beach breaks call for a different board than powerful reef waves or a fast point break.</p><p class="body">For a first board, keep the decision simple. Choose something stable, buoyant, durable, and appropriate for the conditions. If you are unsure, rent first or ask a local shop or surf instructor before spending money.</p><p class="body">The right beginner board gives you enough support to practice the basics: paddling, timing your takeoff, standing up, riding straight, and learning control.</p>
 <ul class="list"><li>Start with a soft-top, foamie, or larger longboard</li><li>Choose length, width, and volume for stability</li><li>Consider the waves you will surf most often</li><li>Buy or rent a leash that matches the board length</li><li>Inspect the board for cracks, damaged fins, or sharp edges</li><li>Ask a local surf shop or instructor when unsure</li><li>Rent before buying if you are still learning what feels right</li></ul>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">SHOP SMART &bull; BAJA TROY&rsquo;S TAKE</div>
 <h2>Your First-Board Checklist</h2>
 <div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Renting a good board for a few sessions can save you from buying the wrong board and turning your garage into a surfboard museum.&rdquo;</div></div>
 <div class="pull">&ldquo;The right first board gives you more practice&mdash;and practice is what makes you better.&rdquo;</div>
 <div class="callout">Use a properly sized leash, check local beach and surf conditions, know your limits, and never surf alone if you are inexperienced. If conditions are beyond your ability, watch, learn, and come back another day.</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">SPONSORS &amp; PARTNERS</div>
-<h2>The Gear Behind the Guide</h2>
+<h2>WATCH THE VIDEO</h2>
+<div class="rule"></div>
+<a class="watchbtn" href="https://youtube.com/shorts/sv6ecawIJzE" target="_blank" rel="noopener">WATCH ON YOUTUBE</a>
+</div></section><section class="slide"><div class="card">
 <div class="sponsors">
 <img src="sponsor-tidewe.jpg" alt="TideWe">
 <img src="sponsor-piscifun.jpg" alt="Piscifun">
@@ -150,21 +139,20 @@ ul.list li::before{content:"\25C6";color:var(--sunset2);position:absolute;left:0
 </div>
 <div class="goldline">FIND THE LINKS IN OUR BIO</div>
 </div></section><section class="slide"><div class="card">
-<div class="kicker">CLOSING</div>
-<div class="logorow"><img src="cowboy-logo.jpg" alt="Baja Troy logo"><img class="bare" src="trailhead-logo.png" alt="Trailhead Commerce"></div>
-<div class="owner">Owned and operated by Trailhead Commerce</div>
-<div class="pull">&ldquo;Pick smart now. Ride better later.&rdquo;</div>
+<div class="logorow" style="margin-top:4px;gap:26px"><img src="cowboy-logo.jpg" alt="Baja Troy logo" style="height:110px"><img class="bare" src="trailhead-logo.png" alt="Trailhead Commerce" style="height:120px"></div>
+<div class="owner" style="margin-top:10px">Owned and operated by Trailhead Commerce</div>
+<div class="pull" style="margin:16px auto 8px">&ldquo;Pick smart now. Ride better later.&rdquo;</div>
 <div class="attrib">&mdash; BAJA TROY</div>
-<div class="rule"></div>
-<div class="goldline">FULL GUIDE &mdash; LINK IN BIO</div>
+<div class="rule" style="margin:14px auto"></div>
+<div class="goldline" style="margin-top:8px">FULL GUIDE &mdash; LINK IN BIO</div>
 <div class="goldline" style="margin-top:12px">BE A GUEST ON THE PODCAST &mdash; LINK IN BIO</div>
 </div></section></div>
 <div id="bar"><button id="bprev" title="Previous">&#10094;</button><div id="counter">1 / 14</div><button id="bnext" title="Next">&#10095;</button><button id="bfull" title="Fullscreen">&#9974;</button></div>
 <script>
 const slides=[...document.querySelectorAll('.slide')];let i=0;
-const counter=document.getElementById('counter'),prog=document.getElementById('progress'),big=document.getElementById('biglogo');
+const counter=document.getElementById('counter'),prog=document.getElementById('progress');
 function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));
-counter.textContent=(i+1)+' / '+slides.length;prog.style.width=((i+1)/slides.length*100)+'%';big.classList.toggle('on',i===0);}
+counter.textContent=(i+1)+' / '+slides.length;prog.style.width=((i+1)/slides.length*100)+'%';}
 function next(){show(i+1)}function prev(){show(i-1)}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
 document.getElementById('stage').addEventListener('click',e=>{if(e.target.closest('#bar'))return;next()});
