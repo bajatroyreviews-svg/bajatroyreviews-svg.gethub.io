@@ -1,495 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAJA TROY'S INLAND, MOUNTAIN &amp; LA/VENTURA FISHING LAKES &mdash; PACK 1</title>
-<link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baja Troy Product Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#c9a227;--gold-soft:#d4af37;--ink:#1b1408;--paper:#f6eddc;--stage:#120d06}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%}
-body{background:radial-gradient(circle at 50% 18%,#241a0c 0%,#120d06 58%,#0b0803 100%);font-family:'Bitter',Georgia,serif;color:var(--paper);overflow:hidden}
-.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:26px 14px 84px}
-.deck{position:relative;width:min(1400px,100%);height:100%;max-height:92vh}
-.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease;display:flex;align-items:center;justify-content:center}
-.slide.on{opacity:1;pointer-events:auto}
-.card{background:linear-gradient(180deg,#fbf5e8 0%,#f3e9d3 100%);color:var(--ink);width:min(720px,94vw);max-height:100%;overflow:auto;border:1px solid #d8c69a;border-radius:18px;padding:clamp(22px,4vw,44px);box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.35)}
-.kicker{font-family:'Rye',cursive;letter-spacing:.16em;color:#8a6d1f;text-transform:uppercase;font-size:clamp(.68rem,1.7vw,.82rem);margin-bottom:10px}
-h1,h2{font-family:'Rye',cursive;font-weight:400;line-height:1.12}
-h1{font-size:clamp(1.7rem,5.2vw,3.1rem);color:#2a1d0b}
-h2{font-size:clamp(1.35rem,4.2vw,2.3rem);color:#2a1d0b;margin-bottom:14px}
-.byline{font-family:'Rye',cursive;color:#6b4f13;letter-spacing:.06em;margin-top:10px;font-size:clamp(.95rem,2.4vw,1.2rem)}
-.featured{margin-top:16px;font-size:clamp(1rem,2.6vw,1.28rem);line-height:1.55;color:#3a2c12}
-.body,.bullets,p{line-height:1.62;color:#33270f}
-.body{font-size:clamp(.98rem,2.5vw,1.12rem)}
-p+p{margin-top:12px}
-.bullets{margin:14px 0 0 1.1em;font-size:clamp(.95rem,2.4vw,1.08rem)}
-.bullets li{margin:.45em 0}
-.media{margin:16px 0 4px}
-.media img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid #cbb47f;box-shadow:0 8px 22px rgba(0,0,0,.18)}
-.caption{font-size:.9rem;color:#6d5a2b;margin-top:8px;font-style:italic}
-.troy{margin-top:16px;border-left:5px solid var(--gold);background:#efe2c4;padding:12px 16px;border-radius:0 12px 12px 0}
-.troy .tag{font-family:'Rye',cursive;font-size:.72rem;letter-spacing:.18em;color:#8a6d1f;display:block;margin-bottom:6px}
-.troy .q{font-size:clamp(1.02rem,2.6vw,1.22rem);line-height:1.5;font-style:italic;color:#2a1d0b}
-.pull{font-size:clamp(1.05rem,2.8vw,1.3rem);font-style:italic;color:#4a360e;margin-top:16px;line-height:1.5}
-.callout{margin-top:14px;background:#e7d6ac;border:1px dashed #a9862c;border-radius:12px;padding:10px 14px;font-size:.95rem;color:#40310f}
-.btn{display:inline-block;font-family:'Rye',cursive;background:var(--gold);color:#1b1408;border-radius:999px;padding:12px 22px;text-decoration:none;margin:8px 8px 0 0;font-size:1rem;box-shadow:0 6px 16px rgba(0,0,0,.25)}
-.btn.alt{background:#2a1d0b;color:var(--gold-soft)}
-.goldline{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto;width:70%}
-.closing .card{text-align:center}
-.logos{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;margin-bottom:6px}
-.logos img{width:min(150px,30vw);height:auto}
-@media(min-width:700px){.logos{flex-direction:row;gap:24px}}
-.bar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:10px;padding:12px;background:linear-gradient(180deg,rgba(18,13,6,0),rgba(18,13,6,.92))}
-.bar button{font-family:'Rye',cursive;background:#241a0c;color:var(--gold-soft);border:1px solid #6b4f13;border-radius:999px;padding:10px 18px;cursor:pointer;letter-spacing:.04em}
-.progress{position:fixed;top:0;left:0;height:5px;background:linear-gradient(90deg,#8a6d1f,var(--gold));width:0;transition:width .3s ease;z-index:5}
-.count{position:fixed;top:12px;right:16px;font-family:'Rye',cursive;color:var(--gold-soft);background:rgba(18,13,6,.72);border:1px solid #6b4f13;border-radius:999px;padding:6px 12px;font-size:.85rem;z-index:5}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg1:#17100a;--bg2:#2b1c10;--parchment:#f6e8c9;--parchment2:#efdcb4;--ink:#3a2a16;--ink-soft:#5d452a;--gold:#d9a84e;--rust:#a34d28}
+body{font-family:'Bitter',Georgia,serif;color:var(--ink);min-height:100vh;background:
+ radial-gradient(1100px 800px at 85% -5%, rgba(232,135,58,.18), transparent 60%),
+ radial-gradient(1000px 800px at -5% 105%, rgba(163,77,40,.22), transparent 60%),
+ linear-gradient(160deg,var(--bg1),var(--bg2));padding:48px 20px 90px;display:flex;flex-direction:column;align-items:center}
+header{text-align:center;margin-bottom:34px}
+header img{width:130px;border:4px solid var(--gold);border-radius:14px;box-shadow:0 10px 26px rgba(0,0,0,.4);margin-bottom:16px}
+h1{font-family:'Rye',serif;color:var(--parchment);font-size:clamp(1.8rem,1.2rem+2.4vw,3rem)}
+.sub{color:rgba(246,232,201,.65);margin-top:10px;font-style:italic;line-height:1.6}
+.cat{width:100%;max-width:900px;margin:26px 0 14px;font-family:'Rye',serif;color:var(--gold);font-size:1.3rem;letter-spacing:.06em;border-bottom:3px double var(--rust);padding-bottom:8px}
+.wrap{width:100%;max-width:900px;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+a.card{position:relative;display:block;background:linear-gradient(165deg,var(--parchment),var(--parchment2));border:3px solid var(--gold);border-radius:14px;padding:22px;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.35);transition:transform .15s ease}
+a.card:hover{transform:translateY(-3px)}
+.ct{font-family:'Rye',serif;font-size:1.25rem;color:var(--ink)}
+.cs{margin-top:8px;font-size:.82rem;font-style:italic;color:var(--ink-soft)}
+.tag{position:absolute;top:-12px;right:14px;background:var(--rust);color:var(--parchment);font-weight:800;font-size:.72rem;letter-spacing:.18em;padding:5px 12px;border-radius:999px;border:2px solid var(--gold)}
+.soon{width:100%;max-width:900px;color:rgba(246,232,201,.5);font-style:italic;padding:6px 4px 10px}
+.links-card{width:100%;max-width:900px;background:linear-gradient(165deg,var(--parchment),var(--parchment2));border:3px solid var(--gold);border-radius:14px;padding:36px 28px;text-align:center;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.links-card .lc-title{font-family:'Rye',serif;font-size:clamp(1.6rem,1.2rem+1.6vw,2.4rem);color:var(--ink)}
+.links-card .lc-sub{margin-top:10px;font-style:italic;color:var(--ink-soft);line-height:1.6}
+.lc-btn{display:inline-block;margin-top:22px;background:var(--rust);color:var(--parchment);font-family:'Rye',serif;font-size:1.1rem;letter-spacing:.08em;text-decoration:none;padding:16px 44px;border-radius:12px;border:3px solid var(--gold);box-shadow:0 8px 20px rgba(0,0,0,.3);transition:transform .15s ease}
+.lc-btn:hover{transform:translateY(-3px)}
+footer{margin-top:40px;color:rgba(246,232,201,.55);font-size:.85rem;letter-spacing:.1em;text-align:center;line-height:1.8}
+</style></head><body>
+<header>
+<img src="cowboy-logo.jpg" alt="Baja Troy Reviews logo">
+<h1>Baja Troy Product Reviews</h1>
+<div class="sub">Restaurant, shop &amp; business reviews — plus tutorials and destinations.<br>Tell 'em Baja Troy sent you.</div>
+</header>
+<div class="cat">RESTAURANT REVIEWS</div>
+<div class="soon">Coming soon — Baja Troy is on the hunt.</div>
+<div class="cat">SHOP REVIEWS</div>
+<div class="wrap">
+<a class="card" href="V22 Round Eyes.html"><span class="tag">NEW</span><div class="ct">Round Eyes Fireworks — Lake Havasu, AZ</div></a>
 
-.flavor{font-style:italic;color:#4a360e;font-size:clamp(.95rem,2.4vw,1.08rem);line-height:1.55;margin-top:10px}
-.loc{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#8a6d1f;margin:4px 0 10px}
-.sec{font-family:'Rye',cursive;font-size:.78rem;letter-spacing:.16em;color:#8a6d1f;text-transform:uppercase;margin:16px 0 8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
-.chip{border:1px solid #b99b45;background:#efe2c4;color:#5a4310;border-radius:999px;padding:4px 12px;font-size:.82rem}
-.panel{border:1px solid #d8c69a;border-radius:12px;background:#fbf5e8;padding:6px 14px;margin-top:8px}
-.panel .row{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed #cbb47f}
-.panel .row:last-child{border-bottom:none}
-.panel .k{font-family:'Rye',cursive;font-size:.72rem;letter-spacing:.08em;color:#8a6d1f;min-width:120px;padding-top:2px}
-.panel .v{flex:1;color:#33270f;font-size:.95rem;line-height:1.5}
-.pat{margin:6px 0}
-.pat .k{font-weight:700;color:#6b4f13;font-size:.85rem;letter-spacing:.08em}
-.pat .v{color:#33270f;font-size:.95rem;margin:2px 0 8px}
-.bigstars{color:#c9a227;font-size:clamp(2rem,7vw,3rem);letter-spacing:.1em;text-shadow:0 2px 0 #8a6d1f}
-.rating{font-family:'Rye',cursive;color:#6b4f13;margin-top:4px}
-.rating_note{font-size:.85rem;color:#6d5a2b;font-style:italic;margin-top:4px}
-.zinger{margin-top:14px;border-left:5px solid var(--gold);background:#efe2c4;padding:12px 16px;border-radius:0 12px 12px 0;font-style:italic;color:#2a1d0b;font-size:clamp(1rem,2.6vw,1.15rem)}
-.index{list-style:none;margin:10px 0}
-.index li{display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px dashed #cbb47f;color:#33270f}
-.index .n{font-family:'Rye',cursive;color:#8a6d1f;font-size:.85rem;min-width:28px}
-.stamp{display:inline-block;font-family:'Rye',cursive;color:#8a2b1d;border:3px double #8a2b1d;border-radius:8px;padding:4px 14px;transform:rotate(-4deg);letter-spacing:.2em;font-size:.9rem;margin-bottom:8px}
-.divider{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto;width:60%}
-.quote{font-style:italic;font-size:clamp(1.05rem,3vw,1.35rem);color:#2a1d0b;margin-top:14px}
-.attrib{font-family:'Rye',cursive;color:#8a6d1f;letter-spacing:.14em;font-size:.85rem;margin-top:6px}
-.coverfoot{margin-top:18px;font-size:.78rem;letter-spacing:.18em;color:#6d5a2b;text-transform:uppercase}
-.brand2{font-family:'Rye',cursive;letter-spacing:.2em;color:#8a6d1f;font-size:.85rem;margin:10px 0}
-.cover-logo{width:min(128px,26vw);border-radius:50%;border:3px solid var(--gold);display:block;margin:0 auto}
-.card ul:not(.index):not(.bullets){margin:6px 0 6px 1.2em}
-.card li{margin:.4em 0}
-.card .v{font-size:.95rem;line-height:1.55;color:#33270f}
-.phslot{border:2px dashed #a9862c;border-radius:12px;padding:36px 14px;text-align:center;font-family:'Rye',cursive;color:#8a6d1f;background:rgba(255,255,255,.35);letter-spacing:.12em}.index li{margin:6px 0}.index a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.55);border:1px solid #6b4f13;border-radius:8px;padding:8px 12px;font-weight:700}.index a:hover{background:#f3e4bd}.index .inum{font-family:'Rye',cursive;color:#6b4f13;font-size:.9em}.index .iarr{margin-left:auto;color:#8a6d1f}</style>
-</head>
-<body>
-<div class="progress" id="pbar"></div>
-<div class="count" id="cnt"></div>
-<main class="stage"><div class="deck">
-<section class="slide"><div class="card"><div class="kicker">BAJA TROY CHECKS IT OUT</div>
-<img class="cover-logo" src="logos/bajatroy-round-logo.jpg" alt="Baja Troy Reviews logo">
-<div class="brand2">BAJATROY&nbsp;REVIEWS</div>
-<h1>INLAND, MOUNTAIN &amp;<br>LA/VENTURA FISHING LAKES</h1>
-<div class="divider"></div>
-<div class="quote">&ldquo;A man with no appointments &mdash; is never late.&rdquo;</div>
-<div class="attrib">BAJA TROY, 2000</div>
-<div class="chips" style="justify-content:center;margin-top:14px"><span class="chip">9 lakes</span><span class="chip">1 secret spot</span><span class="chip">big bear &rarr; cahuilla</span><span class="chip">mountain to desert</span></div>
-<div class="coverfoot">PACK 1 OF 2 &middot; SOUTHERN CALIFORNIA LAKE FISHING</div>
-</div></section>
-<section class="slide"><div class="card"><div class="kicker">PACK 1 &middot; INDEX</div><h2>Jump to a Lake</h2>
-<ul class="index">
-<li><a href="#" data-go="3"><span class="inum">01</span> BIG BEAR LAKE <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="10"><span class="inum">02</span> GREEN VALLEY LAKE <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="17"><span class="inum">03</span> SILVERWOOD LAKE <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="24"><span class="inum">04</span> CASTAIC LAKE <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="31"><span class="inum">05</span> PYRAMID LAKE <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="38"><span class="inum">06</span> LAKE ELSINORE / DIAMOND VALLEY <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="45"><span class="inum">07</span> LAKE MATHEWS <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="52"><span class="inum">08</span> LAKE SKINNER <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="59"><span class="inum">09</span> LAKE CAHUILLA <span class="iarr">&rarr;</span></a></li>
-<li><a href="#" data-go="66"><span class="inum">SS</span> BAJA TROY SECRET SPOT <span class="iarr">&rarr;</span></a></li>
-</ul>
-<div class="callout">Tap a lake to jump &mdash; the INDEX button in the bottom bar brings you back here from anywhere.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PACK 1 · INTRO</div>
-<h1>HOW TO USE THIS PACK</h1>
-<div class="flavor" style="margin-top:12px">This here’s the inland and mountain crew—high-elevation mountain lakes, state park reservoirs, and a couple of private trophy waters that’ll take your money and give you a story. We’re talkin’ San Bernardino Mountains, the Castaic hills, and them private club lakes out near Riverside and Indio where the bass are fat, the rules are strict, and the heat don’t play. If you’re willin’ to drive the twisty roads, pay the gate, and dodge the weekend boats, these lakes’ll feed you fish and give you something to brag on till the next trip.</div>
-<div class="sec">THE LAKES — MOUNTAIN TO DESERT</div>
-<ul class="index"><li><span class="n">01</span>Big Bear Lake</li><li><span class="n">02</span>Green Valley Lake</li><li><span class="n">03</span>Silverwood Lake</li><li><span class="n">04</span>Castaic Lake (Upper & Lower)</li><li><span class="n">05</span>Pyramid Lake</li><li><span class="n">06</span>Lake Elsinore / Diamond Valley</li><li><span class="n">07</span>Lake Mathews</li><li><span class="n">08</span>Lake Skinner</li><li><span class="n">09</span>Lake Cahuilla</li><li><span class="n">SS</span>The Secret Spot (Southern California Edition)</li></ul>
-<div class="callout">Every fee in this pack is a published rate, not a gate quote &mdash; confirm same week, and stack the state license on top.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE 01 OF 09</div>
-<h2>BIG BEAR LAKE</h2><div class="loc">BIG BEAR CITY · SAN BERNARDINO MOUNTAINS</div>
-<div class="flavor">Up in the San Bernardino Mountains, where the air’s thin, the pines are tall, and the bass don’t take kindly to city folk noise.</div><div class="media"><img src="lake-photos/big-bear-lake.jpg" alt=""><div class="caption">Big Bear at 6,700 feet &mdash; cold, clear, permit water.</div></div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">rainbow trout</span><span class="chip">largemouth & smallmouth bass</span><span class="chip">channel catfish</span><span class="chip">bluegill</span><span class="chip">crappie</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">mountain</span><span class="chip">family</span><span class="chip">cold mountain water</span><span class="chip">cold water</span><span class="chip">crowded weekends</span></div>
-</div></section>
-<section class="slide"><div class="card"><div class="eyebrow">BIG BEAR LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">Public mountain water &mdash; the MWD public ramps don&rsquo;t charge a gate fee. The permit is the cost.</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">FREE launch at the two public ramps. Every vessel still needs the Lake Use Permit: $46/day motorized &middot; $29/day kayak, canoe or float tube (2026 rates)</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore fishing from points around the lake, multiple ramps, kayak-friendly if you&rsquo;re strong-armed. Quagga inspection is mandatory before any vessel touches water.</div></div><div class="row"><div class="k">HOURS</div><div class="v">Generally daylight hours; some ramps close at dusk, some stay open later in summer—check posted signs.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Winter can shut down some access points with snow and ice; chain requirements on the mountain roads are no joke.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required &mdash; and every vessel needs the Lake Use Permit after quagga inspection.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BIG BEAR LAKE</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Rainbow trout, largemouth bass, smallmouth bass</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Crappie, bluegill, catfish (channel)</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Rainbow trout stocked regularly through cooler months; schedule varies by season and DFW plans.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Trout commonly in the 12–18″ range, with some pushin’ 20″ on a good day; bass in the 2–5 lb range, with the odd bigger one if you know where to knock.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BIG BEAR LAKE</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">April–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; midday can still produce trout in cooler months.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass moving shallow to spawn; trout active in cooling water.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass go deeper in the day; trout get picky as water warms.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Both bass and trout fire up before winter.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Trout focus; bass slow down, but can still be coaxed with slow presentations.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BIG BEAR LAKE</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Trout: Still-fishing with nightcrawlers, PowerBait, small jigs; trolling with small spoons or plugs.</li><li>Bass: Drop shot, Carolina rig, shaky head, topwater early/late, crankbaits along rocky points and timber.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Trout: Nightcrawlers, mealworms, PowerBait, small inline spinners, spoons. · Bass: Soft plastics (worms, creatures), jigs, drop-shot weights, topwater frogs/poppers in low light.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Trout: 6′–6′6″ light to medium-light spinning rod, 4–8 lb test. · Bass: 6′6″–7′ medium to medium-heavy rod, 8–15 lb test depending on cover.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BIG BEAR LAKE</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Available at most major ramps and parks; shade is your friend in summer sun.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">Multiple ramps around the lake; marinas offer boat rentals, fuel, and basic supplies.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good around town and main ramps; gets spotty in some coves and back sides.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Cold water year-round—life jacket isn’t optional if you’re in a small boat or kayak.</li><li>Afternoon winds can kick up; don’t get cocky in a tin can.</li><li>Winter driving: chains may be required; mountain roads don’t forgive foolishness.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BIG BEAR LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate (trout are forgiving; mountain bass demand respect)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High—plenty of shoreline access, rentals, and facilities; just mind the cold and the crowds.</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Weekday mornings in spring or fall—fewer boats, happier fish, and you won’t spend your whole day waitin’ in launch lines.</div>
-<div class="zinger">Big Bear’ll feed you trout for supper and humble your ego before breakfast.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;The mountain doesn&rsquo;t care how tough you talk. It wants to see you climb.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE 02 OF 09</div><h2>GREEN VALLEY LAKE</h2><div class="loc">GREEN VALLEY LAKE &middot; SAN BERNARDINO MOUNTAINS</div><div class="flavor">Tucked up in the San Bernardino Mountains, not far from Big Bear but with a mood all its own&mdash;smaller, quieter, and mean when it wants to be.</div><div class="media"><div class="phslot">PHOTO COMING SOON</div><div class="caption">Green Valley Lake &mdash; Baja Troy&rsquo;s own shot is headed here.</div></div><div class="sec">SPECIES</div><div class="chips"><span class="chip">rainbow trout</span><span class="chip">bass (catch &amp; release)</span><span class="chip">crappie</span><span class="chip">redear sunfish</span></div><div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">rental boats only</span><span class="chip">no motors</span><span class="chip">no float tubes</span></div><div class="sec">VIBE</div><div class="chips"><span class="chip">mountain</span><span class="chip">quiet</span><span class="chip">family</span><span class="chip">private &mdash; day passes sold</span></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">GREEN VALLEY LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">Private lake that sells day passes to the public &mdash; daily fishing pass at the boathouse: $20 adult &middot; $10 kids under 16 &middot; $15 seniors, military &amp; vets</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">No private boats, no motors &mdash; rowboats, pedal boats and kayaks rent at the boathouse</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore fishing around most of the lake; no fishing from the dam, the boat dock area, or the swim beach</div></div><div class="row"><div class="k">HOURS</div><div class="v">5:30 AM &ndash; 8 PM, Opening Day (mid-May) to Closing Day, weather permitting</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Frozen most winters &mdash; this is a mountain season, not a year-round one</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California fishing license (16+) required, and the GVL pass has to be visible on you</div></div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">GREEN VALLEY LAKE</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Rainbow trout &mdash; stocked hard, roughly a dozen plants a season at 250&ndash;800 lbs apiece</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Bass (catch and release, lures only), crappie, redear sunfish</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Jess Ranch and CDFW trout through the season; lake record rainbow is 13 lb 3 oz</div></div><div class="row"><div class="k">SIZE</div><div class="v">Trout commonly 12–18″, with some larger; bass mostly 1–4 lbs, with a few bigger ones hiding in the structure.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">GREEN VALLEY LAKE</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">April–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and evening for bass; trout can bite all day in cooler seasons.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow, trout active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Trout deeper and pickier; bass hold to shade and structure.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Both species feed hard before winter.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Trout focus; bass slow but not dead.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">GREEN VALLEY LAKE</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Trout: Still-fishing with bait, small jigs, trolling light lures.</li><li>Bass: Catch and release, lures only &mdash; no bait on bass here, and they check.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Trout: Nightcrawlers, mealworms, PowerBait, small spinners and spoons. · Bass: Soft plastics (worms, tubes), small jigs, drop-shot rigs.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Trout: 6′–6′6″ light to medium-light spinning rod, 4–8 lb test. · Bass: 6′6″–7′ medium rod, 8–12 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">GREEN VALLEY LAKE</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Basic facilities near ramp and shoreline; shade trees in spots.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">No private ramp &mdash; rentals at the boathouse; the general store in town has bait and tackle.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair around the lake, can drop in some coves.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Cold water year-round; life jacket recommended, especially for kayak and small boats.</li><li>Afternoon winds can chop the water; keep your craft under control.</li><li>Winter road conditions can be rough; chains may be needed.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">GREEN VALLEY LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★☆</div>
-<div class="rating">4 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate (trout are solid; bass require some finesse)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">Good—smaller lake, easier to manage with kids, but facilities are basic.</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Weekdays in spring or fall; you’ll dodge weekend crowds and get first dibs on the good shoreline spots.</div>
-<div class="zinger">Green Valley’s the quiet mountain brother that’ll outfish the loud lakes and never brag about it.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;You don&rsquo;t need the whole trail figured out. Just enough daylight for the next ridge.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE 03 OF 09</div>
-<h2>SILVERWOOD LAKE</h2><div class="loc">HELENDALE / VICTORVILLE · SAN BERNARDINO HIGH DESERT</div>
-<div class="flavor">Out past Helendale, where the desert meets the hills and the state park runs the show like a well-oiled machine.</div><div class="media"><img src="lake-photos/silverwood-lake.jpg" alt=""><div class="caption">Silverwood on a summer day &mdash; the swim crowd leaves at dusk, the bass don&rsquo;t.</div></div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">striped bass (seasonal)</span><span class="chip">channel catfish</span><span class="chip">rainbow trout</span><span class="chip">bluegill</span><span class="chip">crappie</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">state park</span><span class="chip">family</span><span class="chip">trophy potential</span><span class="chip">desert-mountain mix</span></div>
-</div></section>
-<section class="slide"><div class="card"><div class="eyebrow">SILVERWOOD LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">State park day use: $10 per vehicle &mdash; $20 on peak summer weekends and holidays</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">$10 per vessel, separate from the vehicle admission</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore fishing from banks and designated areas, multiple ramps, good for boats and kayaks. No fishing at launch ramps, courtesy docks, or swim areas.</div></div><div class="row"><div class="k">HOURS</div><div class="v">Park hours generally daylight to dusk; some areas may have extended hours in summer.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Park can close or limit access during extreme weather or maintenance; water levels can vary.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required; special regulations may apply—check CDFW and park postings.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">SILVERWOOD LAKE</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Largemouth bass, striped bass (seasonal/variable), catfish (channel)</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Rainbow trout (seasonal), bluegill, crappie</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Trout stocked in cooler months; stripers vary by year and management.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Bass commonly 2–5 lbs, with trophies over 6–8 lbs possible; stripers can run larger when present; catfish in the 5–15 lb range, with bigger ones out there.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">SILVERWOOD LAKE</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; trout active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; catfish more active at night; trout sparse.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass and stripers feed up; water cools, fish get aggressive.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Trout and catfish focus; bass slower but still catchable.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">SILVERWOOD LAKE</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Striped bass: Trolling with spoons or plugs, casting swimbaits and jigs.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li><li>Trout: Still-fishing with bait, small jigs, trolling light lures in season.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Stripers: Spoons, swimbaits, jigs, trolling plugs. · Catfish: Cut bait, nightcrawlers, prepared catfish baits. · Trout: Nightcrawlers, PowerBait, small spinners/spoons.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Stripers: 7′ medium-heavy to heavy, 12–20 lb test. · Catfish: 7′ medium-heavy to heavy, 15–25 lb test. · Trout: 6′–6′6″ light to medium-light, 4–8 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">SILVERWOOD LAKE</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Good facilities around main areas; shade structures and picnic tables available.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">Multiple ramps; marina offers boat rentals, fuel, and basic supplies.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas; can drop in some coves.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is no joke—water, shade, and sunscreen are mandatory, not optional.</li><li>Afternoon winds can whip the lake up; respect the chop in small boats.</li><li>Watch for submerged structure and changing water levels.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">SILVERWOOD LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate (solid bass and cats; stripers add complexity when present)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High—good facilities, rentals, and shoreline access; just mind the heat and boat traffic.</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass, summer nights for catfish, and cooler months for trout—pick your poison and plan accordingly.</div>
-<div class="zinger">Silverwood’ll give you a bass story worth tellin’ and a sunburn worth rememberin’.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;One more cast ain&rsquo;t a promise. It&rsquo;s a way of life.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE 04 OF 09</div>
-<h2>CASTAIC LAKE (UPPER & LOWER)</h2><div class="loc">CASTAIC · LOS ANGELES / VENTURA</div>
-<div class="flavor">Out by Castaic, where the 5 Freeway forgets your name and the hills start actin’ like they run the place.</div><div class="media"><img src="lake-photos/castaic-lake.jpg" alt=""><div class="caption">Castaic at sundown &mdash; the lagoon below the dam is where the shore anglers gather.</div></div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">smallmouth bass</span><span class="chip">channel catfish</span><span class="chip">rainbow trout</span><span class="chip">bluegill</span><span class="chip">crappie</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">state park</span><span class="chip">family</span><span class="chip">trophy potential</span><span class="chip">desert-mountain mix</span></div>
-</div></section>
-<section class="slide"><div class="card"><div class="eyebrow">CASTAIC LAKE (UPPER &amp; LOWER)</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">$12 per vehicle</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">$13 motorized &middot; $9 nonmotorized &mdash; and lagoon vessels need a launch permit too</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Upper reservoir takes your gas motor. Lower lagoon is shore and pier fishing &mdash; boats limited to hand-powered, sail, or electric trolling. No gasoline on the lagoon.</div></div><div class="row"><div class="k">HOURS</div><div class="v">Park hours generally daylight to dusk; some areas may have extended hours in summer.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Can close or limit access during extreme weather, maintenance, or low water.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required; special regulations may apply—check CDFW and park postings.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">CASTAIC LAKE (UPPER & LOWER)</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Largemouth bass, smallmouth bass</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Catfish (channel), rainbow trout (seasonal), bluegill, crappie</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Trout stocked in cooler months; bass and cats self-sustaining.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Bass commonly 2–6 lbs, with trophies over 7–8 lbs possible; catfish in the 5–15 lb range, with bigger ones out there.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">CASTAIC LAKE (UPPER & LOWER)</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; trout active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; catfish more active at night; trout sparse.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass feed hard as water cools.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Trout focus; bass slower but still catchable.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">CASTAIC LAKE (UPPER & LOWER)</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li><li>Trout: Still-fishing with bait, small jigs, trolling light lures in season.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Catfish: Cut bait, nightcrawlers, prepared catfish baits. · Trout: Nightcrawlers, PowerBait, small spinners/spoons.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Catfish: 7′ medium‑heavy to heavy, 15–25 lb test. · Trout: 6′–6′6″ light to medium-light, 4–8 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">CASTAIC LAKE (UPPER & LOWER)</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Good facilities around main areas; shade structures and picnic tables available.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">Multiple ramps; marina offers boat rentals, fuel, and basic supplies.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas; can drop in some coves.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is brutal—water, shade, and sunscreen are non-negotiable.</li><li>Afternoon winds can whip the lake up; respect the chop in small boats.</li><li>Watch for submerged structure and changing water levels.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">CASTAIC LAKE (UPPER & LOWER)</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate to advanced (bass are plentiful but pressured)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High—good facilities, rentals, and shoreline access; just mind the heat and boat traffic.</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass, summer nights for catfish, and cooler months for trout—pick your poison and plan accordingly.</div>
-<div class="zinger">Castaic’ll give you a bass story worth tellin’ and a sunburn worth rememberin’.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;A little rust don&rsquo;t mean the blade forgot its job.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE 05 OF 09</div>
-<h2>PYRAMID LAKE</h2><div class="loc">GORMAN &middot; LOS ANGELES COUNTY</div>
-<div class="flavor">Out past Castaic, where the hills get dramatic and the water looks like it belongs in a movie about outlaws and last stands.</div><div class="media"><img src="lake-photos/pyramid-lake.jpg" alt=""><div class="caption">Pyramid with the Topatopas behind it &mdash; aqueduct water that grew stripers.</div></div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">smallmouth bass</span><span class="chip">striped bass</span><span class="chip">channel catfish</span><span class="chip">rainbow trout</span><span class="chip">bluegill</span><span class="chip">crappie</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">public reservoir</span><span class="chip">family</span><span class="chip">trophy potential</span><span class="chip">desert-mountain mix</span></div>
-</div></section>
-<section class="slide"><div class="card"><div class="eyebrow">PYRAMID LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">Posted $15 per vehicle &mdash; that schedule dates to 2022 and visitors report paying more now. Confirm at the gate.</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">Posted $16 trailer/watercraft &middot; $10 nonmotorized &mdash; same advice: confirm at the gate</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Emigrant Landing, off Vista Del Lago Road: fishing access, boat launch, and designated shoreline</div></div><div class="row"><div class="k">HOURS</div><div class="v">Park hours generally daylight to dusk; some areas may have extended hours in summer.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Boat caps are set daily &mdash; when the cap fills, the ramp line stops moving. Weekends mean arriving early.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required; special regulations may apply—check CDFW and park postings.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PYRAMID LAKE</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Largemouth bass, smallmouth bass, striped bass</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Catfish (channel), rainbow trout (seasonal), bluegill, crappie</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Trout stocked in cooler months; bass and stripers self-sustaining.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Bass commonly 2–6 lbs, with trophies over 7–8 lbs possible; stripers can run 10–20+ lbs; catfish in the 5–15 lb range, with bigger ones out there.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PYRAMID LAKE</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; trolling for stripers can work all day; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; stripers active; trout in cooler water.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; stripers follow bait; catfish more active at night; trout sparse.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass and stripers feed hard as water cools.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Trout focus; bass and stripers slower but still catchable.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PYRAMID LAKE</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Striped bass: Trolling with spoons or plugs, casting swimbaits and jigs.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li><li>Trout: Still-fishing with bait, small jigs, trolling light lures in season.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Stripers: Spoons, swimbaits, jigs, trolling plugs. · Catfish: Cut bait, nightcrawlers, prepared catfish baits. · Trout: Nightcrawlers, PowerBait, small spinners/spoons.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Stripers: 7′ medium-heavy to heavy, 12–20 lb test. · Catfish: 7′ medium-heavy to heavy, 15–25 lb test. · Trout: 6′–6′6″ light to medium-light, 4–8 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PYRAMID LAKE</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Good facilities around main areas; shade structures and picnic tables available.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">Multiple ramps; marina offers boat rentals, fuel, and basic supplies.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas; can drop in some coves.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is no joke—water, shade, and sunscreen are mandatory, not optional.</li><li>Afternoon winds can whip the lake up; respect the chop in small boats.</li><li>Watch for submerged structure and changing water levels.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">PYRAMID LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate to advanced (bass and stripers are plentiful but pressured)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High—good facilities, rentals, and shoreline access; just mind the heat and boat traffic.</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass, summer nights for catfish, and cooler months for trout—pick your poison and plan accordingly.</div>
-<div class="zinger">Pyramid’ll give you a bass story worth tellin’ and a sunburn worth rememberin’.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Carry your water, keep your word, and leave the rest of the weight behind.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE 06 OF 09</div>
-<h2>LAKE ELSINORE / DIAMOND VALLEY</h2><div class="loc">LAKE ELSINORE · RIVERSIDE / INLAND EMPIRE</div>
-<div class="flavor">Down in the Elsinore Valley, where the heat shimmers and the bass act like they’ve got a union and a lawyer.</div><div class="media"><img src="lake-photos/lake-elsinore.jpg" alt=""><div class="caption">Elsinore from the hills &mdash; 3,000 acres of natural water. Diamond Valley sits one valley over.</div></div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">channel catfish</span><span class="chip">bluegill</span><span class="chip">crappie</span><span class="chip">trophy bass (DVL)</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">wild (elsinore)</span><span class="chip">managed (dvl)</span><span class="chip">trophy potential</span><span class="chip">heat-heavy</span></div>
-</div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">Elsinore: public beaches and long free shoreline stretches &mdash; no gate fee. Diamond Valley: $11 parking per vehicle</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">Elsinore: Launch Pointe &mdash; $10 launch, parking included, plus a $10 Lake Use Fee per vessel. Diamond Valley: launch through the marina &mdash; 951-926-7201 for current fees</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Elsinore: 14 miles of shoreline, public beaches, a 4-mile levee. Diamond Valley: designated shore fishing and rentals through Diamond Valley Marina</div></div><div class="row"><div class="k">HOURS</div><div class="v">Elsinore: 6 AM to half an hour before sunset. Diamond Valley: marina gate hours &mdash; check before you drive</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Elsinore: algae blooms and wind advisories can change the day &mdash; check the city lake report. Diamond Valley: no dogs (wildlife refuge), quagga zero tolerance</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California fishing license required on both &mdash; Diamond Valley is public water, no private-lake exemption</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Elsinore: largemouth bass, channel catfish · Diamond Valley: largemouth bass (trophy-oriented)</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Elsinore: bluegill, crappie, occasional trout in cooler months · Diamond Valley: bluegill, catfish (varies by stocking)</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Elsinore: occasional trout stockings; bass and cats self-sustaining. Diamond Valley: stocked since fill-up &mdash; Florida largemouth, smallmouth, trout and catfish. A managed fishery, not a private one.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Elsinore: bass 2–5 lbs, trophies over 6–8 lbs; cats 5–15 lbs. Diamond Valley: bass 3–8 lbs, trophies over 10 lbs; well-managed fishery.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; catfish active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; catfish more active at night.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass feed hard as water cools.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Bass slower but still catchable; catfish active on mild days.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Catfish: Cut bait, nightcrawlers, prepared catfish baits.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Catfish: 7′ medium-heavy to heavy, 15–25 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Elsinore: basic facilities at some access points; shade limited. Diamond Valley: good facilities; shade structures and picnic tables.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">Elsinore: public ramp; limited rentals. Diamond Valley: private ramps; rentals may be available.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is brutal—water, shade, and sunscreen are non-negotiable.</li><li>Elsinore can have algae blooms and water quality issues; check local advisories.</li><li>Diamond Valley: no dogs (wildlife refuge) and no live bait fish &mdash; the rules are real, and enforced.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE ELSINORE / DIAMOND VALLEY</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★½☆</div>
-<div class="rating">3.5 / 5 · 4.5 / 5</div><div class="rating_note">ELSNORE 3.5 (wild, unpredictable, giants) · DIAMOND VALLEY 4.5 (managed, trophy, pricey)</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Elsinore: intermediate to advanced (local knowledge helps) · Diamond Valley: intermediate (managed, but bass are smart)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">Elsinore: moderate (rough edges, fun with kids) · Diamond Valley: high (clean, safe, expensive)</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass on both lakes; summer nights for catfish on Elsinore.</div>
-<div class="zinger">Elsinore’s the wild cousin; Diamond Valley’s the rich uncle—both’ll teach you about bass, but one’ll charge you for the lesson.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;A river don&rsquo;t smooth a stone without knocking it around first.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE 07 OF 09</div><h2>LAKE MATHEWS</h2><div class="loc">MORENO VALLEY &middot; MWD RESERVOIR &mdash; CLOSED TO PUBLIC RECREATION</div><div class="flavor">Out near Moreno Valley, where the fence is tall, the water is Metropolitan, and the closest an honest angler gets is a lawful roadside viewpoint.</div><div class="media"><img src="lake-photos/lake-mathews.jpg" alt="LAKE MATHEWS"><div class="caption">Lake Mathews from a lawful roadside viewpoint. That&rsquo;s as close as it gets.</div></div><div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass (in there)</span><span class="chip">catfish (in there)</span><span class="chip">you (out here)</span></div><div class="sec">ACCESS</div><div class="chips"><span class="chip">viewpoint-only</span><span class="chip">no public fishing</span><span class="chip">no launching</span></div><div class="sec">VIBE</div><div class="chips"><span class="chip">fenced</span><span class="chip">guarded</span><span class="chip">legendary</span><span class="chip">look-don&rsquo;t-fish</span></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">The view from the road is free.</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">Not available. Not &lsquo;difficult&rsquo; &mdash; not available.</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Fenced Metropolitan Water District reservoir &mdash; public recreation closed, and they mean it.</div></div><div class="row"><div class="k">HOURS</div><div class="v">Sunrise to sunset, from the outside.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Always. For you.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">A camera. Maybe a sandwich. Leave the rods rigged for Skinner.</div></div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Bass and catfish swim in there &mdash; the signs say so.</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Myths. Every local&rsquo;s got a story about a guy who knew a guy.</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Whatever MWD does, they do it behind the fence.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Big enough to talk about. Off-limits enough to dream about.</div></div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>SEASONS &amp; TIMING</h1><div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">Any month you can see it from the road.</div><div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Golden hour &mdash; the water lights up, and so does the fence.</div><div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Poppies on the hills. Gate stays closed.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Heat shimmer. Mirage bass.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Best light of the year for the photograph you&rsquo;re allowed to take.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Storm light on the water. Still closed.</div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>TACTICS &amp; GEAR</h1><div class="sec">TOP TECHNIQUES</div><ul><li>Find the lawful roadside viewpoint on the map.</li><li>Take the picture. Zoom if it helps.</li><li>Drive on &mdash; Skinner&rsquo;s twenty minutes away and actually legal.</li></ul><div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">A camera with a decent zoom. That&rsquo;s the whole tackle box here.</div><div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Tripod, maybe. The wind off the hills doesn&rsquo;t care about your feelings.</div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>FACILITIES &amp; SAFETY</h1><div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Gas station down the road.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">None. That IS the point.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Excellent &mdash; the towers on the ridge have no idea you&rsquo;re sulking.</div></div></div><div class="sec">SAFETY NOTES</div><ul><li>Don&rsquo;t hop the fence. Don&rsquo;t be the guy in somebody&rsquo;s story.</li><li>The road pullouts are there for a reason &mdash; use them.</li></ul></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE MATHEWS</div><h1>MOUNTAIN MAN VERDICT</h1><div class="bigstars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="rating">5 / 5 for the view</div><div class="rating_note">0 / 5 for access &mdash; because there isn&rsquo;t any</div><div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">None. That&rsquo;s the problem.</div><div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">Great for a five-minute photo stop on the way to Skinner.</div><div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Whenever you&rsquo;re passing on the 60. Don&rsquo;t make a special trip.</div><div class="zinger">Mathews is the one that got away from everybody.</div><div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;El viento no pide permiso, y yo tampoco. &mdash; The wind doesn&rsquo;t ask permission. Neither do I.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE 08 OF 09</div><h2>LAKE SKINNER</h2><div class="loc">TEMECULA / WINCHESTER &middot; RIVERSIDE COUNTY PARK</div><div class="flavor">Out near Temecula, where the county keeps the gates wide open, the water runs warm, and the bass don&rsquo;t care what your shirt costs.</div><div class="media"><img src="lake-photos/lake-skinner.jpg" alt="LAKE SKINNER"><div class="caption">Lake Skinner &mdash; county park water that fishes bigger than it looks.</div></div><div class="sec">SPECIES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">striped bass</span><span class="chip">channel catfish</span><span class="chip">bluegill</span><span class="chip">crappie</span></div><div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">boat-good</span><span class="chip">kayak-good</span></div><div class="sec">VIBE</div><div class="chips"><span class="chip">county park</span><span class="chip">managed</span><span class="chip">trophy potential</span><span class="chip">heat-heavy</span></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE SKINNER</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">$6 adult &middot; $3 child (12 and under)</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">$7 per vessel &mdash; a separate line from everything else</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore fishing, a county ramp and courtesy docks &mdash; just not from the ramps or docks themselves</div></div><div class="row"><div class="k">HOURS</div><div class="v">Park hours &mdash; daylight to dusk</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Fee schedule changed August 2024 &mdash; if you haven&rsquo;t been since, bring extra singles</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required &mdash; public water, full stop</div></div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE SKINNER</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Largemouth bass, striped bass, channel catfish</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Bluegill, crappie and other panfish</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Bass, stripers, cats and panfish documented. Trout? Used to swim here &mdash; nobody&rsquo;s confirmed a current plant, so we&rsquo;re not leading with it</div></div><div class="row"><div class="k">SIZE</div><div class="v">Bass commonly 3–8 lbs, with trophies over 10 lbs possible; catfish in the 10–20+ lb range.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE SKINNER</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; catfish active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; catfish more active at night.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass feed hard as water cools.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Bass slower but still catchable; catfish active on mild days.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE SKINNER</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Catfish: Cut bait, nightcrawlers, prepared catfish baits.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Catfish: 7′ medium-heavy to heavy, 15–25 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE SKINNER</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Park restrooms, picnic areas, and RV camping on site.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">County ramp ($7) with courtesy docks.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is brutal—water, shade, and sunscreen are non-negotiable.</li><li>Private rules; follow them or get escorted out.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE SKINNER</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate to advanced (managed fishery, but bass are smart)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High (clean, safe, but expensive)</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass; summer nights for catfish.</div>
-<div class="zinger">Skinner&rsquo;s the county lake that fishes like it owes you money..</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;The desert charges tuition in sweat. Best pay attention.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE 09 OF 09</div><h2>LAKE CAHUILLA</h2><div class="loc">LA QUINTA &middot; RIVERSIDE COUNTY PARK</div><div class="flavor">Out near La Quinta, where the county keeps a veterans&rsquo; park with cool water, fat catfish, and a strict no-boats rule.</div><div class="media"><img src="lake-photos/lake-cahuilla.jpg" alt="LAKE CAHUILLA"><div class="caption">Lake Cahuilla &mdash; shore-fishing only, Santa Rosa Mountains standing guard.</div></div><div class="sec">SPECIES</div><div class="chips"><span class="chip">stocked trout</span><span class="chip">channel catfish</span><span class="chip">bass</span><span class="chip">bluegill</span></div><div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-friendly</span><span class="chip">shore-only</span><span class="chip">no boating</span><span class="chip">no swimming</span></div><div class="sec">VIBE</div><div class="chips"><span class="chip">county park</span><span class="chip">family</span><span class="chip">stocked trout</span><span class="chip">desert heat</span></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE CAHUILLA</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">$6 adult &middot; $3 child (12 and under)</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">There isn&rsquo;t one &mdash; boats and swimming are prohibited. Shore fishing only.</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore fishing the whole way around; stocked trout and channel catfish do the work, with bass and bluegill in the mix</div></div><div class="row"><div class="k">HOURS</div><div class="v">Park hours &mdash; daylight to dusk</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Desert heat is part of the fee &mdash; fish mornings, hide at noon</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license required &mdash; public water</div></div></div></div></section>
-<section class="slide"><div class="card"><div class="eyebrow">LAKE CAHUILLA</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Stocked trout, channel catfish</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Bluegill, crappie, occasional trout in cooler months</div></div><div class="row"><div class="k">STOCKING</div><div class="v">County plants trout; catfish holdover stock keeps things honest</div></div><div class="row"><div class="k">SIZE</div><div class="v">Bass commonly 3–8 lbs, with trophies over 10 lbs possible; catfish in the 10–20+ lb range.</div></div></div></div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE CAHUILLA</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">March–June, September–November</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Early morning and late evening for bass; night can be good for catfish in summer.</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Bass shallow for spawn; catfish active.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Bass deeper; catfish more active at night.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Bass feed hard as water cools.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Bass slower but still catchable; catfish active on mild days.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE CAHUILLA</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Bass: Drop shot, Carolina rig, jigs, crankbaits, topwater early/late.</li><li>Catfish: Bottom fishing with cut bait, nightcrawlers, stink bait.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Bass: Soft plastics (worms, creatures), jigs, drop-shot rigs, crankbaits, topwater. · Catfish: Cut bait, nightcrawlers, prepared catfish baits.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Bass: 6′6″–7′ medium to medium-heavy, 10–17 lb test. · Catfish: 7′ medium-heavy to heavy, 15–25 lb test.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE CAHUILLA</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">Good facilities; shade structures and picnic tables available.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">None &mdash; and that&rsquo;s the rule, not an oversight.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">Fair to good in most areas.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Summer heat is brutal—water, shade, and sunscreen are non-negotiable.</li><li>Private rules; follow them or get escorted out.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">LAKE CAHUILLA</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★½</div>
-<div class="rating">4.5 / 5</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Intermediate to advanced (managed fishery, but bass are smart)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">High (clean, safe, but expensive)</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Spring mornings for bass; summer nights for catfish.</div>
-<div class="zinger">Cahuilla&rsquo;s where you go when you want the fish to come to you..</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Hands ought to tell a story soap can&rsquo;t quite wash off.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="stamp">CLASSIFIED</div>
-<div class="eyebrow">LAKE SS OF 09</div>
-<h2>BAJATROY SECRET SPOT</h2><div class="loc">SOUTHERN CALIFORNIA EDITION · COORDINATES UNKNOWN</div>
-<div class="flavor">Somewhere over them hills, ’round that bend, past where the old barn used to be before it fell down or got carried off by one of them midnight tornadoes that don’t bother showin’ up on the weather.</div>
-<div class="sec">SPECIES</div><div class="chips"><span class="chip">mystery</span><span class="chip">legend</span><span class="chip">“you had to be there”</span></div>
-<div class="sec">ACCESS</div><div class="chips"><span class="chip">bank-secret</span><span class="chip">boat-if-you-dare</span><span class="chip">kayak-through-the-brush</span></div>
-<div class="sec">VIBE</div><div class="chips"><span class="chip">wild</span><span class="chip">remote</span><span class="chip">no signal</span><span class="chip">no stories to facebook</span><span class="chip">baja troy approved</span></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>ACCESS &amp; FEES</h1>
-<div class="panel"><div class="row"><div class="k">DAY USE</div><div class="v">One tank of gas, a couple of wrong turns, and your pride.</div></div><div class="row"><div class="k">LAUNCH</div><div class="v">You’ll launch off the bank, off a rock, or off the side of a log if you’re desperate.</div></div><div class="row"><div class="k">ACCESS</div><div class="v">Shore, boat, kayak, or wade—whichever gets you there without leavin’ a trail. GPS will lie to you, your cousin will lie to you, and that fella at the bait shop? He’ll lie worst of all.</div></div><div class="row"><div class="k">HOURS</div><div class="v">When the owl hoots twice and the coyotes shut up for a minute.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">Closed whenever you tell your buddy where it is. Opens back up when you forget.</div></div><div class="row"><div class="k">PERMIT</div><div class="v">California sport fishing license recommended; common sense required.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>SPECIES &amp; STOCKING</h1>
-<div class="panel"><div class="row"><div class="k">PRIMARY</div><div class="v">Whatever bit last time (could be bass, could be catfish, could be a catfish wearin’ a bass costume).</div></div><div class="row"><div class="k">SECONDARY</div><div class="v">Whatever you dreamt about on the drive up.</div></div><div class="row"><div class="k">STOCKING</div><div class="v">Natural selection, hillbilly style.</div></div><div class="row"><div class="k">SIZE</div><div class="v">Big enough to make you swear you’ll never tell, small enough to make you doubt yourself next trip.</div></div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>SEASONS &amp; TIMING</h1>
-<div class="sec">BEST MONTHS</div><div class="v" style="font-size:14.5px">When the water’s fishin’ and the roads ain’t mud.</div>
-<div class="sec">BEST TIME OF DAY</div><div class="v" style="font-size:14.5px">Between “too early to see your lure” and “too late to see your bank.”</div>
-<div class="sec">SEASONAL PATTERNS</div><div class="pat"><div class="k">SPRING</div><div class="v">Fish shallow, bugs thick, snakes sunnin’.</div></div><div class="pat"><div class="k">SUMMER</div><div class="v">Fish deep, heat brutal, shade scarce.</div></div><div class="pat"><div class="k">FALL</div><div class="v">Fish feedin’, leaves fallin’, sense disappearin’.</div></div><div class="pat"><div class="k">WINTER</div><div class="v">Fish slow, fingers numb, sense returnin’.</div></div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>TACTICS &amp; GEAR</h1>
-<div class="sec">TOP TECHNIQUES</div><ul><li>Cast where it looks too rough to fish.</li><li>Work the shadows, the drop-offs, and the places your buddy said “ain’t nothin’ there.”</li><li>If you catch one, move three steps left and cast again. If you catch another, shut up and fish.</li></ul>
-<div class="sec">BAITS &amp; LURES</div><div class="v" style="font-size:14px;line-height:1.55">Whatever’s in your box that ain’t tangled. Nightcrawlers if you got ’em, plastic worms if you don’t, and a prayer if you’re outta both.</div>
-<div class="sec">ROD &amp; LINE SETUPS</div><div class="v" style="font-size:14px;line-height:1.55">Whatever bends when a fish bites and straightens when you pull on a snag.</div>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>FACILITIES &amp; SAFETY</h1>
-<div class="panel"><div class="row"><div class="k">RESTROOMS & SHADE</div><div class="v">The tree line is your restroom, the clouds are your shade, and your cooler is your picnic table.</div></div><div class="row"><div class="k">RAMPS & RENTALS</div><div class="v">You are the ramp, the dock, and the rental.</div></div><div class="row"><div class="k">CELL SERVICE</div><div class="v">If you got signal, you’re too close to the road.</div></div></div>
-<div class="sec">SAFETY NOTES</div><ul><li>Dodge the cougar, mind the rattlers, and don’t argue with the old fella that claims he owns the creek—even if he don’t.</li><li>Listen for the owl. If he hoots three times, you’re in the right holler. If he don’t hoot at all, you’re in the wrong county.</li><li>That rock that looks like a bear? It turned into a bear that looks like a rock last Tuesday. Give it space.</li></ul>
-</div></section>
-<section class="slide"><div class="card">
-<div class="eyebrow">BAJATROY SECRET SPOT</div><h1>MOUNTAIN MAN VERDICT</h1>
-<div class="bigstars">★★★★★</div>
-<div class="rating">5 / 5 in your head</div><div class="rating_note">3 / 5 in your story · 0 / 5 if you put it on Facebook</div>
-<div class="sec">DIFFICULTY</div><div class="v" style="font-size:14px">Expert (requires navigatin’ by memory, moon, and stubbornness)</div>
-<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:14px">Moderate (kids love it till they step in the mud, then they love it less)</div>
-<div class="sec">GO WHEN</div><div class="v" style="font-size:14px">Go when the lakes are crowded and you’re tired of elbowin’ for a cast. Go when you need to remember why you started fishin’ in the first place.</div>
-<div class="zinger">The secret spot ain’t a place on a map—it’s the place you earn by gettin’ lost enough times that findin’ it feels like winnin’.</div>
-<div class="troy"><span class="tag">BAJA TROY SAYS</span><div class="q">&ldquo;Never trust a shortcut recommended by a man with clean boots.&rdquo;</div></div></div></section>
-<section class="slide"><div class="card"><div class="kicker">FIND BAJA TROY</div><h2>Watch, Read, Ride Along</h2>
-<a class="btn" href="https://www.youtube.com/@BAJATROYREVIEWS" target="_blank" rel="noopener">WATCH ON YOUTUBE</a>
-<a class="btn alt" href="https://beacons.ai/bajatroyreviews" target="_blank" rel="noopener">ALL MY LINKS</a>
-<p class="body" style="margin-top:16px">Nine lakes and one secret down. Pack 2&rsquo;s waters are already on the board &mdash; tell me which one you want first.</p>
-<div class="callout">Decks and pages managed &amp; owned by Trailhead Commerce.</div>
-</div></section>
-<section class="slide closing"><div class="card"><div class="logos">
-<img src="logos/bajatroy-round-logo.jpg" alt="Baja Troy Reviews logo">
-<img src="logos/trailhead-logo.png" alt="Trailhead Commerce logo"></div>
-<div class="goldline"></div>
-<p class="featured" style="font-style:italic">&ldquo;Some men chase a name. I chase whatever&rsquo;s bending my fishing rod.&rdquo;</p>
-<div class="byline">&mdash; BAJA TROY</div>
-<div class="goldline"></div>
-<p class="body">TELL &rsquo;EM BAJA TROY SENT YOU.</p>
-<p class="body">BE A GUEST ON THE PODCAST &mdash; LINK IN BIO.</p>
-</div></section>
-</div></main>
-<nav class="bar">
-<button id="bprev" type="button">&larr; Back</button>
-<button id="bfull" type="button">Full</button>
-<button id="bidx" type="button">Index</button>
-<button id="bnext" type="button">Next &rarr;</button>
-</nav>
-<script>
-const s=document.querySelectorAll('.slide');let i=0;
-const pbar=document.getElementById('pbar'),cnt=document.getElementById('cnt');
-function show(n){s[i].classList.remove('on');i=(n+s.length)%s.length;s[i].classList.add('on');
-pbar.style.width=((i+1)/s.length*100)+'%';cnt.textContent=(i+1)+' / '+s.length;}
-function next(){show(i+1)}function prev(){show(i-1)}
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();next()}
-if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='f'||e.key==='F'){toggleFull()}});
-document.addEventListener('click',e=>{if(e.target.closest('a,button,.bar'))return;next()});
-function toggleFull(){if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}}
-const bprev=document.getElementById('bprev'),bnext=document.getElementById('bnext'),bfull=document.getElementById('bfull');
-bprev.addEventListener('click',e=>{e.stopPropagation();prev()});
-bnext.addEventListener('click',e=>{e.stopPropagation();next()});
-bfull.addEventListener('click',e=>{e.stopPropagation();toggleFull()});
-const bidx=document.getElementById('bidx');
-bidx.addEventListener('click',e=>{e.stopPropagation();show(1)});
-document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();show(parseInt(el.dataset.go,10))}));
-let sx=0;document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
-window.addEventListener('resize',()=>show(i));
-show(0);
-</script>
-</body>
-</html>
+<a class="card" href="batteryreview.html"><div class="ct">Battery Review</div></a>
+</div>
+<div class="cat">PRODUCT REVIEWS</div>
+<div class="wrap">
+<a class="card" href="piscifun.html"><div class="ct">Piscifun</div></a>
+</div>
+<div class="cat">TUTORIALS</div>
+<div class="wrap">
+<a class="card" href="surfguide1.html"><div class="ct">Beginner Surf Guide</div></a>
+<a class="card" href="Fishing Rigs 101 v4.html"><div class="ct">Fishing Rigs 101</div></a>
+<a class="card" href="Rigs Tutorial v2.html"><div class="ct">Rigs Tutorial</div></a>
+<a class="card" href="TUTORIALTOFARWEST.html"><div class="ct">Too Far West</div><div class="cs">Suno tutorial for the song</div></a>
+<a class="card" href="BackFromTheMountain.html"><div class="ct">Back From The Mountain</div><div class="cs">How to write a song — Suno</div></a>
+<a class="card" href="optout.html"><div class="ct">Opt Out of AI Spying</div></a>
+</div>
+<div class="cat">DESTINATIONS</div>
+<div class="wrap">
+<a class="card" href="kernlower.html"><div class="ct">Kern River — Lower</div></a>
+<a class="card" href="kernmiddle.html"><div class="ct">Kern River — Middle</div></a>
+<a class="card" href="kernupper.html"><div class="ct">Kern River — Upper</div></a>
+<a class="card" href="giants.html"><div class="ct">Trail of a Hundred Giants</div></a>
+<a class="card" href="395guide.html"><div class="ct">395 Fishing Guide</div></a>
+<a class="card" href="socalake1.html"><div class="ct">SoCal Lake 1</div></a>
+<a class="card" href="socalake2.html"><div class="ct">SoCal Lake 2</div></a>
+<a class="card" href="hbfish.html"><div class="ct">Huntington Beach Fishing Review</div></a>
+<a class="card" href="dans.html"><div class="ct">Dan's Adventures</div></a>
+</div>
+<div class="cat">THE PODCAST</div>
+<div class="wrap">
+<a class="card" href="podcast.html"><div class="ct">The Podcast</div></a>
+<a class="card" href="guest.html"><div class="ct">Want to Be a Guest?</div></a>
+</div>
+<div class="links-card">
+<div class="lc-title">MY LINKS</div>
+<div class="lc-sub">Our other social media links and affiliates — all in one place.</div>
+<a class="lc-btn" href="https://beacons.ai/bajatroyreviews">VISIT OUR LINKS &amp; AFFILIATES</a>
+</div>
+<footer>
+TELL 'EM BAJA TROY SENT YOU<br>
+BE A GUEST ON THE PODCAST — LINK IN BIO
+</footer>
+</body></html>
