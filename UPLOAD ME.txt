@@ -1,0 +1,4 @@
+UPLOAD ALL FILES IN THIS ZIP to the same folder as your other deck pages.
+Keep every file name exactly as-is. socalake2.html is the page your index links to.
+The two txt files are for your records - uploading them does nothing and is harmless.
+- BAJA TROY crew
