@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAJA TROY'S HUNTINGTON BEACH CENTRAL PARK LAKES</title>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Bitter:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a227;--gold-soft:#d4af37;--ink:#1b1408;--paper:#f6eddc;--stage:#120d06}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:radial-gradient(circle at 50% 18%,#241a0c 0%,#120d06 58%,#0b0803 100%);font-family:'Bitter',Georgia,serif;color:var(--paper);overflow:hidden}
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:26px 14px 84px}
+.deck{position:relative;width:min(1400px,100%);height:100%;max-height:92vh}
+.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease;display:flex;align-items:center;justify-content:center}
+.slide.on{opacity:1;pointer-events:auto}
+.card{background:linear-gradient(180deg,#fbf5e8 0%,#f3e9d3 100%);color:var(--ink);width:min(720px,94vw);max-height:100%;overflow:auto;border:1px solid #d8c69a;border-radius:18px;padding:clamp(22px,4vw,44px);box-shadow:0 18px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.35)}
+.kicker{font-family:'Rye',cursive;letter-spacing:.16em;color:#8a6d1f;text-transform:uppercase;font-size:clamp(.68rem,1.7vw,.82rem);margin-bottom:10px}
+h1,h2{font-family:'Rye',cursive;font-weight:400;line-height:1.12}
+h1{font-size:clamp(1.7rem,5.2vw,3.1rem);color:#2a1d0b}
+h2{font-size:clamp(1.35rem,4.2vw,2.3rem);color:#2a1d0b;margin-bottom:14px}
+.byline{font-family:'Rye',cursive;color:#6b4f13;letter-spacing:.06em;margin-top:10px;font-size:clamp(.95rem,2.4vw,1.2rem)}
+.featured{margin-top:16px;font-size:clamp(1rem,2.6vw,1.28rem);line-height:1.55;color:#3a2c12}
+.body,.bullets,p{line-height:1.62;color:#33270f}
+.body{font-size:clamp(.98rem,2.5vw,1.12rem)}
+p+p{margin-top:12px}
+.bullets{margin:14px 0 0 1.1em;font-size:clamp(.95rem,2.4vw,1.08rem)}
+.bullets li{margin:.45em 0}
+.media{margin:16px 0 4px}
+.media img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid #cbb47f;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.caption{font-size:.9rem;color:#6d5a2b;margin-top:8px;font-style:italic}
+.troy{margin-top:16px;border-left:5px solid var(--gold);background:#efe2c4;padding:12px 16px;border-radius:0 12px 12px 0}
+.troy .tag{font-family:'Rye',cursive;font-size:.72rem;letter-spacing:.18em;color:#8a6d1f;display:block;margin-bottom:6px}
+.troy .q{font-size:clamp(1.02rem,2.6vw,1.22rem);line-height:1.5;font-style:italic;color:#2a1d0b}
+.pull{font-size:clamp(1.05rem,2.8vw,1.3rem);font-style:italic;color:#4a360e;margin-top:16px;line-height:1.5}
+.callout{margin-top:14px;background:#e7d6ac;border:1px dashed #a9862c;border-radius:12px;padding:10px 14px;font-size:.95rem;color:#40310f}
+.btn{display:inline-block;font-family:'Rye',cursive;background:var(--gold);color:#1b1408;border-radius:999px;padding:12px 22px;text-decoration:none;margin:8px 8px 0 0;font-size:1rem;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.btn.alt{background:#2a1d0b;color:var(--gold-soft)}
+.goldline{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto;width:70%}
+.closing .card{text-align:center}
+.logos{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;margin-bottom:6px}
+.logos img{width:min(150px,30vw);height:auto}
+@media(min-width:700px){.logos{flex-direction:row;gap:24px}}
+.badge{position:absolute;top:10px;right:10px;width:56px;height:auto;border-radius:50%;border:2px solid var(--gold);box-shadow:0 4px 10px rgba(0,0,0,.35);z-index:2}
+.jumpwrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.btn.small{padding:10px 16px;font-size:.88rem}
+.bar a{font-family:'Rye',cursive;background:#241a0c;color:var(--gold-soft);border:1px solid #6b4f13;border-radius:999px;padding:10px 18px;letter-spacing:.04em;text-decoration:none;font-size:1rem}
+.phslot{margin:16px 0 4px;border:2px dashed #b99b45;border-radius:12px;padding:26px 14px;text-align:center;font-family:'Rye',cursive;color:#8a6d1f;letter-spacing:.14em;font-size:.9rem;background:#efe2c4}
+.bar{display:flex;flex-wrap:wrap}
+.bar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:10px;padding:12px;background:linear-gradient(180deg,rgba(18,13,6,0),rgba(18,13,6,.92))}
+.bar button{font-family:'Rye',cursive;background:#241a0c;color:var(--gold-soft);border:1px solid #6b4f13;border-radius:999px;padding:10px 18px;cursor:pointer;letter-spacing:.04em}
+.progress{position:fixed;top:0;left:0;height:5px;background:linear-gradient(90deg,#8a6d1f,var(--gold));width:0;transition:width .3s ease;z-index:5}
+.count{position:fixed;top:12px;right:16px;font-family:'Rye',cursive;color:var(--gold-soft);background:rgba(18,13,6,.72);border:1px solid #6b4f13;border-radius:999px;padding:6px 12px;font-size:.85rem;z-index:5}
+
+.flavor{font-style:italic;color:#4a360e;font-size:clamp(.95rem,2.4vw,1.08rem);line-height:1.55;margin-top:10px}
+.loc{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:#8a6d1f;margin:4px 0 10px}
+.sec{font-family:'Rye',cursive;font-size:.78rem;letter-spacing:.16em;color:#8a6d1f;text-transform:uppercase;margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.chip{border:1px solid #b99b45;background:#efe2c4;color:#5a4310;border-radius:999px;padding:4px 12px;font-size:.82rem}
+.panel{border:1px solid #d8c69a;border-radius:12px;background:#fbf5e8;padding:6px 14px;margin-top:8px}
+.panel .row{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed #cbb47f}
+.panel .row:last-child{border-bottom:none}
+.panel .k{font-family:'Rye',cursive;font-size:.72rem;letter-spacing:.08em;color:#8a6d1f;min-width:120px;padding-top:2px}
+.panel .v{flex:1;color:#33270f;font-size:.95rem;line-height:1.5}
+.pat{margin:6px 0}
+.pat .k{font-weight:700;color:#6b4f13;font-size:.85rem;letter-spacing:.08em}
+.pat .v{color:#33270f;font-size:.95rem;margin:2px 0 8px}
+.bigstars{color:#c9a227;font-size:clamp(2rem,7vw,3rem);letter-spacing:.1em;text-shadow:0 2px 0 #8a6d1f}
+.rating{font-family:'Rye',cursive;color:#6b4f13;margin-top:4px}
+.rating_note{font-size:.85rem;color:#6d5a2b;font-style:italic;margin-top:4px}
+.zinger{margin-top:14px;border-left:5px solid var(--gold);background:#efe2c4;padding:12px 16px;border-radius:0 12px 12px 0;font-style:italic;color:#2a1d0b;font-size:clamp(1rem,2.6vw,1.15rem)}
+.index{list-style:none;margin:10px 0}
+.index li{display:flex;align-items:baseline;gap:10px;padding:6px 0;border-bottom:1px dashed #cbb47f;color:#33270f}
+.index .n{font-family:'Rye',cursive;color:#8a6d1f;font-size:.85rem;min-width:28px}
+.stamp{display:inline-block;font-family:'Rye',cursive;color:#8a2b1d;border:3px double #8a2b1d;border-radius:8px;padding:4px 14px;transform:rotate(-4deg);letter-spacing:.2em;font-size:.9rem;margin-bottom:8px}
+.divider{height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto;width:60%}
+.quote{font-style:italic;font-size:clamp(1.05rem,3vw,1.35rem);color:#2a1d0b;margin-top:14px}
+.attrib{font-family:'Rye',cursive;color:#8a6d1f;letter-spacing:.14em;font-size:.85rem;margin-top:6px}
+.coverfoot{margin-top:18px;font-size:.78rem;letter-spacing:.18em;color:#6d5a2b;text-transform:uppercase}
+.brand2{font-family:'Rye',cursive;letter-spacing:.2em;color:#8a6d1f;font-size:.85rem;margin:10px 0}
+.cover-logo{width:min(128px,26vw);border-radius:50%;border:3px solid var(--gold);display:block;margin:0 auto}
+.card ul:not(.index):not(.bullets){margin:6px 0 6px 1.2em}
+.card li{margin:.4em 0}
+.card .v{font-size:.95rem;line-height:1.55;color:#33270f}
+</style>
+</head>
+<body>
+<div class="progress" id="pbar"></div>
+<div class="count" id="cnt"></div>
+<main class="stage"><div class="deck">
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="kicker">BAJA TROY CHECKS IT OUT</div>
+<img class="cover-logo" src="cowboy-logo.jpg" alt="Baja Troy Reviews logo">
+<div class="brand2">BAJATROY&nbsp;REVIEWS</div>
+<h1>HUNTINGTON BEACH<br>CENTRAL PARK LAKES</h1>
+<div class="divider"></div>
+<div class="quote">&ldquo;Two lakes. One hometown. Plenty of reasons to cast.&rdquo;</div>
+<div class="attrib">BAJA TROY</div>
+<div class="chips" style="justify-content:center;margin-top:14px"><span class="chip">2 lakes</span><span class="chip">hometown water</span><span class="chip">huntington &amp; talbert</span><span class="chip">shore fishing only</span></div>
+<div class="coverfoot">HUNTINGTON BEACH, CALIFORNIA</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="kicker">CENTRAL PARK LAKES NAVIGATION</div><h2>Jump to a Lake</h2>
+<div class="jumpwrap"><button class="btn small" data-go="3">HUNTINGTON LAKE</button><button class="btn small" data-go="10">TALBERT LAKE</button></div>
+<div class="jumpwrap"><button class="btn small alt" data-go="17">MY LINKS</button><a class="btn small" href="index.html">HOME</a></div>
+<div class="callout">Tap a lake to jump straight there. The INDEX button in the bar below brings you back to this page from anywhere &mdash; and HOME takes you to your front door.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON BEACH CENTRAL PARK LAKES</div>
+<h1>HOW TO USE THIS PACK</h1>
+<div class="flavor" style="margin-top:12px">Two named lakes inside one big park: Huntington Lake on the west side, Talbert Lake on the east. Both fish from the bank, and each keeps its own personality.</div>
+<div class="sec">THE LAKES</div>
+<ul class="index"><li><span class="n">01</span>Huntington Lake &mdash; Central Park West</li><li><span class="n">02</span>Talbert Lake &mdash; Central Park East</li></ul>
+<div class="kicker" style="margin-top:10px">BAJA TROY&rsquo;S CALL</div>
+<div class="zinger">&ldquo;The fish don&rsquo;t care how fancy your gear is&mdash;and they&rsquo;re happy to prove it.&rdquo;</div>
+<div class="callout">The city lists no separate lake fishing fee &mdash; your California fishing license is the ticket, 16 and older. Park hours run 5 a.m. to 10 p.m.</div>
+<div class="callout">Fished these lakes? Got a correction, a hot bite report, or a story worth tellin&rsquo;? Email BAJA TROY at <a href="mailto:bajatroyreviews@gmail.com" style="color:#6b4f13;font-weight:700">bajatroyreviews@gmail.com</a> &mdash; and check the front door (HOME) for the podcast invite. Fish these waters and you might end up sitting down for an interview with me.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">LAKE 01 OF 02</div>
+<h2>HUNTINGTON LAKE</h2><div class="loc">HUNTINGTON BEACH CENTRAL PARK WEST</div>
+<div class="flavor">Huntington Lake is the west-side water &mdash; open grass, benches where the regulars hold court, and room to work a cast along the bank. Boats and rafts stay home; your feet do the fishing.</div>
+<div class="media"><img src="hb-huntington.jpg" alt=""><div class="caption">The west lake on a clear morning &mdash; grass, glass, and room to cast.<br><span style="font-size:.8em">Photo: BAJA TROY</span></div></div>
+<div class="sec">SPECIES &mdash; LISTED FOR THE PARK LAKES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">channel catfish</span><span class="chip">bluegill &amp; sunfish</span><span class="chip">crappie</span><span class="chip">rainbow trout (winter)</span><span class="chip">carp</span></div>
+<div class="sec">ACCESS</div><div class="chips"><span class="chip">shore fishing only</span><span class="chip">no boats, rafts, or float tubes</span><span class="chip">benches &amp; trails</span><span class="chip">park hours 5am&ndash;10pm</span></div>
+<div class="sec">VIBE</div><div class="chips"><span class="chip">hometown water</span><span class="chip">family</span><span class="chip">walk-in easy</span><span class="chip">shore fishing</span></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">FISHING FEE</div><div class="v">No separate lake fishing fee is listed by the City of Huntington Beach. California fishing-license requirements apply.</div></div><div class="row"><div class="k">CA LICENSE 2026</div><div class="v">Resident $64.54/yr &middot; nonresident $174.14/yr &middot; 1-day $21.09 &middot; 2-day $32.40. Second-rod validation $20.26. Buy through CDFW online, a license agent, or a CDFW office &mdash; not at the lake.</div></div><div class="row"><div class="k">WHO NEEDS ONE</div><div class="v">Anglers 16 and older &mdash; keep the license in your immediate possession (you do not have to wear it). Under 16 fishes free.</div></div><div class="row"><div class="k">PARK HOURS</div><div class="v">5:00 a.m. to 10:00 p.m.; park curfew 10 p.m.&ndash;5 a.m. Individual lot gates may vary &mdash; check posted signs.</div></div><div class="row"><div class="k">BOATS</div><div class="v">No boats, rafts, or float tubes are permitted on the lakes. Shore fishing only.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">No lake-specific closure calendar was verified. Check posted notices or call the park before a holiday trip: (714) 536-5486.</div></div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">LISTED FOR THE PARK LAKES</div><div class="v">Channel catfish, largemouth bass, bluegill, crappie, rainbow trout and carp. The city does not break the list down per lake.</div></div><div class="row"><div class="k">STOCKING</div><div class="v">The city states channel catfish are stocked in summer and rainbow trout in winter.</div></div><div class="row"><div class="k">PLANT RECORDS</div><div class="v">CDFW&rsquo;s schedule lists plants at &ldquo;Huntington Park Lake,&rdquo; and fish-report databases log trout plants at Huntington Central Park Lake through spring 2025. Records confirm plants in the park &mdash; not which named lake gets each delivery.</div></div><div class="row"><div class="k">PROMISE NOTHING FIXED</div><div class="v">Plant schedules change with water, weather and operations. Check CDFW&rsquo;s current schedule the week you fish.</div></div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>SEASONS &amp; TIMING</h1>
+<div class="sec">BEST WINDOWS</div>
+<div class="v" style="font-size:15px">Winter carries the trout plants; summer brings the catfish; spring and fall are the comfortable bass windows. The park opens at 5 a.m. &mdash; the first hour of light is the locals&rsquo; hour.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>TACTICS &amp; GEAR</h1><div class="pat"><div class="k">SPRING BASS</div><div class="v">Work the shoreline cover and drop-offs with plastics and small crankbaits; bass fishing is suggested catch-and-release &mdash; handle them wet and quick.</div></div><div class="pat"><div class="k">SUMMER CATS</div><div class="v">Evening bottom-fishing with cut bait or stink bait along the deeper bank; catfish prowl after the walkers thin out.</div></div><div class="pat"><div class="k">WINTER TROUT</div><div class="v">After a plant, fish small spinners, mini-jigs and power bait near the inflow and along the dam face.</div></div><div class="pat"><div class="k">PANFISH</div><div class="v">Bluegill and crappie on worms and bobbers &mdash; the classic first-fish setup for kids on these banks.</div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>FACILITIES &amp; SAFETY</h1><div class="panel"><div class="row"><div class="k">ON SITE</div><div class="v">Restrooms, four playgrounds, walking and exercise trails, benches around both lakes, picnic tables and open grass, disc golf, dog park, equestrian trails. Restaurants sit near the lakes.</div></div><div class="row"><div class="k">RESTROOM NOTE</div><div class="v">City reports five of six restroom replacements complete; the final Gothard parking-lot restroom is in design &mdash; confirm conditions on arrival.</div></div><div class="row"><div class="k">PARKING</div><div class="v">Both free and paid public parking exist in lots throughout the park &mdash; check the meter or signage at your chosen entrance.</div></div><div class="row"><div class="k">SHADE</div><div class="v">Benches and mature trees ring both lakes; scout your shaded spot on arrival.</div></div></div>
+<div class="sec">SAFETY NOTES</div><ul><li>License in possession if you&rsquo;re 16 or older &mdash; rangers do check.</li><li>Confirm current CDFW freshwater bag and size limits before you keep anything.</li><li>City parks: (714) 536-5486, Mon&ndash;Fri 8&ndash;5.</li></ul></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">HUNTINGTON LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
+<div class="sec">DIFFICULTY</div><div class="v" style="font-size:15px">Easy walking, honest fishing &mdash; no boat to rig, no gate fee, just your license and your feet.</div>
+<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:15px">Very high &mdash; playgrounds, grass, benches, and panfish action for the kids.</div>
+<div class="callout">Got a better read on this lake? Email <b>bajatroyreviews@gmail.com</b> &mdash; local knowledge goes in the next update.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">LAKE 02 OF 02</div>
+<h2>TALBERT LAKE</h2><div class="loc">HUNTINGTON BEACH CENTRAL PARK EAST</div>
+<div class="flavor">Talbert runs a full wildlife show: turtles stacked on the logs, Canadian geese holding formation on the grass, an Egyptian goose that acts like it owns the lease, and a rooster nobody can explain. Skunks, opossums and coyotes work the night shift. Bring a camera &mdash; the bass are only part of the cast.</div>
+<div class="media"><img src="hb-talbert.jpg" alt=""><div class="caption">A great egret working the east lake &mdash; and it is not the only local with opinions.<br><span style="font-size:.8em">Photo: BAJA TROY</span></div></div>
+<div class="sec">SPECIES &mdash; LISTED FOR THE PARK LAKES</div><div class="chips"><span class="chip">largemouth bass</span><span class="chip">channel catfish</span><span class="chip">bluegill &amp; sunfish</span><span class="chip">crappie</span><span class="chip">rainbow trout (winter)</span><span class="chip">carp</span></div>
+<div class="sec">ACCESS</div><div class="chips"><span class="chip">shore fishing only</span><span class="chip">no boats, rafts, or float tubes</span><span class="chip">benches &amp; trails</span><span class="chip">park hours 5am&ndash;10pm</span></div>
+<div class="sec">VIBE</div><div class="chips"><span class="chip">hometown water</span><span class="chip">wildlife show</span><span class="chip">walk-in easy</span><span class="chip">photographer&rsquo;s lake</span></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>ACCESS &amp; FEES</h1><div class="panel"><div class="row"><div class="k">FISHING FEE</div><div class="v">No separate lake fishing fee is listed by the City of Huntington Beach. California fishing-license requirements apply.</div></div><div class="row"><div class="k">CA LICENSE 2026</div><div class="v">Resident $64.54/yr &middot; nonresident $174.14/yr &middot; 1-day $21.09 &middot; 2-day $32.40. Second-rod validation $20.26. Buy through CDFW online, a license agent, or a CDFW office &mdash; not at the lake.</div></div><div class="row"><div class="k">WHO NEEDS ONE</div><div class="v">Anglers 16 and older &mdash; keep the license in your immediate possession (you do not have to wear it). Under 16 fishes free.</div></div><div class="row"><div class="k">PARK HOURS</div><div class="v">5:00 a.m. to 10:00 p.m.; park curfew 10 p.m.&ndash;5 a.m. Individual lot gates may vary &mdash; check posted signs.</div></div><div class="row"><div class="k">BOATS</div><div class="v">No boats, rafts, or float tubes are permitted on the lakes. Shore fishing only.</div></div><div class="row"><div class="k">CLOSURES</div><div class="v">No lake-specific closure calendar was verified. Check posted notices or call the park before a holiday trip: (714) 536-5486.</div></div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>SPECIES &amp; STOCKING</h1><div class="panel"><div class="row"><div class="k">LISTED FOR THE PARK LAKES</div><div class="v">Channel catfish, largemouth bass, bluegill, crappie, rainbow trout and carp. The city does not break the list down per lake.</div></div><div class="row"><div class="k">STOCKING</div><div class="v">The city states channel catfish are stocked in summer and rainbow trout in winter.</div></div><div class="row"><div class="k">PLANT RECORDS</div><div class="v">CDFW&rsquo;s schedule lists plants at &ldquo;Huntington Park Lake,&rdquo; and fish-report databases log trout plants at Huntington Central Park Lake through spring 2025. Records confirm plants in the park &mdash; not which named lake gets each delivery.</div></div><div class="row"><div class="k">PROMISE NOTHING FIXED</div><div class="v">Plant schedules change with water, weather and operations. Check CDFW&rsquo;s current schedule the week you fish.</div></div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>SEASONS &amp; TIMING</h1>
+<div class="sec">BEST WINDOWS</div>
+<div class="v" style="font-size:15px">Winter carries the trout plants; summer brings the catfish; spring and fall are the comfortable bass windows. The park opens at 5 a.m. &mdash; the first hour of light is the locals&rsquo; hour.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>TACTICS &amp; GEAR</h1><div class="pat"><div class="k">SPRING BASS</div><div class="v">Work the shoreline cover and drop-offs with plastics and small crankbaits; bass fishing is suggested catch-and-release &mdash; handle them wet and quick.</div></div><div class="pat"><div class="k">SUMMER CATS</div><div class="v">Evening bottom-fishing with cut bait or stink bait along the deeper bank; catfish prowl after the walkers thin out.</div></div><div class="pat"><div class="k">WINTER TROUT</div><div class="v">After a plant, fish small spinners, mini-jigs and power bait near the inflow and along the dam face.</div></div><div class="pat"><div class="k">PANFISH</div><div class="v">Bluegill and crappie on worms and bobbers &mdash; the classic first-fish setup for kids on these banks.</div></div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>FACILITIES &amp; SAFETY</h1><div class="panel"><div class="row"><div class="k">ON SITE</div><div class="v">Restrooms, four playgrounds, walking and exercise trails, benches around both lakes, picnic tables and open grass, disc golf, dog park, equestrian trails. Restaurants sit near the lakes.</div></div><div class="row"><div class="k">RESTROOM NOTE</div><div class="v">City reports five of six restroom replacements complete; the final Gothard parking-lot restroom is in design &mdash; confirm conditions on arrival.</div></div><div class="row"><div class="k">PARKING</div><div class="v">Both free and paid public parking exist in lots throughout the park &mdash; check the meter or signage at your chosen entrance.</div></div><div class="row"><div class="k">SHADE</div><div class="v">Benches and mature trees ring both lakes; scout your shaded spot on arrival.</div></div></div>
+<div class="sec">SAFETY NOTES</div><ul><li>License in possession if you&rsquo;re 16 or older &mdash; rangers do check.</li><li>Confirm current CDFW freshwater bag and size limits before you keep anything.</li><li>City parks: (714) 536-5486, Mon&ndash;Fri 8&ndash;5.</li></ul></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="eyebrow">TALBERT LAKE</div><h1>MOUNTAIN MAN VERDICT</h1>
+<div class="sec">DIFFICULTY</div><div class="v" style="font-size:15px">Easy water with a wild edge &mdash; the animals will inspect you while you fish.</div>
+<div class="sec">FAMILY-FRIENDLY</div><div class="v" style="font-size:15px">Very high &mdash; nature-ride level wildlife between casts; keep an eye on small kids at dusk.</div>
+<div class="callout">Got a better read on this lake? Email <b>bajatroyreviews@gmail.com</b> &mdash; local knowledge goes in the next update.</div></div></section>
+<section class="slide"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="kicker">FIND BAJA TROY</div><h2>Watch, Read, Ride Along</h2>
+<a class="btn" href="https://www.youtube.com/@BAJATROYREVIEWS" target="_blank" rel="noopener">WATCH ON YOUTUBE</a>
+<a class="btn alt" href="https://beacons.ai/bajatroyreviews" target="_blank" rel="noopener">ALL MY LINKS</a>
+<a class="btn" href="mailto:bajatroyreviews@gmail.com">EMAIL BAJA TROY</a>
+<p class="body" style="margin-top:16px">Two hometown lakes, fact-checked October 2026. Fished these waters? Got a correction or a story? Email me &mdash; and check the front door for the podcast invite.</p>
+<div style="text-align:center;margin-top:16px"><img src="bajatroy-apparel-logo.jpg" alt="Baja Troy Outdoor Gear and Apparel" style="width:min(240px,55vw);border-radius:12px;border:1px solid #cbb47f;box-shadow:0 8px 22px rgba(0,0,0,.18)"></div>
+<div class="callout">Decks and pages managed &amp; owned by Trailhead Commerce.</div></div></section>
+<section class="slide closing"><img class="badge" src="cowboy-logo.jpg" alt=""><div class="card"><div class="logos"><img src="cowboy-logo.jpg" alt="Baja Troy Reviews logo"><a href="https://trailhead-commerce.github.io/TRAILHEAD-COMMERCE-/index.html" target="_blank" rel="noopener"><img src="trailhead-logo.png" alt="Trailhead Commerce logo"></a><img src="bajatroy-apparel-logo.jpg" alt="Baja Troy Outdoor Gear and Apparel"></div><div class="goldline"></div><p class="featured" style="font-style:italic">&ldquo;The fish don&rsquo;t care how fancy your gear is&mdash;and they&rsquo;re happy to prove it.&rdquo;</p><div class="byline">&mdash; BAJA TROY</div><div class="goldline"></div><p class="body">TELL &rsquo;EM BAJA TROY SENT YOU.</p><p class="body">BE A GUEST ON THE PODCAST &mdash; LINK IN BIO.</p></div></section>
+</div></main>
+
+<nav class="bar">
+<a id="bhome" href="index.html">Home</a><button id="bidx" type="button">Index</button><button id="bprev" type="button">&larr; Back</button>
+<button id="bfull" type="button">Full</button>
+<button id="bnext" type="button">Next &rarr;</button>
+</nav>
+<script>
+const s=document.querySelectorAll('.slide');let i=0;
+const pbar=document.getElementById('pbar'),cnt=document.getElementById('cnt');
+function show(n){s[i].classList.remove('on');i=(n+s.length)%s.length;s[i].classList.add('on');
+pbar.style.width=((i+1)/s.length*100)+'%';cnt.textContent=(i+1)+' / '+s.length;}
+function next(){show(i+1)}function prev(){show(i-1)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();next()}
+if(e.key==='ArrowLeft'){e.preventDefault();prev()}if(e.key==='f'||e.key==='F'){toggleFull()}});
+document.addEventListener('click',e=>{if(e.target.closest('a,button,.bar'))return;next()});
+function toggleFull(){if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}}
+const bprev=document.getElementById('bprev'),bnext=document.getElementById('bnext'),bfull=document.getElementById('bfull');
+bprev.addEventListener('click',e=>{e.stopPropagation();prev()});
+bnext.addEventListener('click',e=>{e.stopPropagation();next()});
+bfull.addEventListener('click',e=>{e.stopPropagation();toggleFull()});
+let sx=0;document.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50){dx<0?next():prev()}},{passive:true});
+window.addEventListener('resize',()=>show(i));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();show(parseInt(b.dataset.go,10))}));
+const bidx=document.getElementById('bidx');bidx.addEventListener('click',e=>{e.stopPropagation();show(1)});
+show(0);
+</script>
+</body>
+</html>
