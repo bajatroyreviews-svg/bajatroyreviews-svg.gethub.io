@@ -1,0 +1,34 @@
+PHOTO CREDITS — ON THE 395 CORRIDOR DECK (395guide.html)
+All photos free license / public domain. Verified on their source pages 10/14/2026.
+No embedded images — these files live next to the deck on GitHub.
+
+ch1-big-bear.jpg — BIG BEAR LAKE (Chapter 1 opener)
+  Photo: Plane777 — PUBLIC DOMAIN
+  Source: https://commons.wikimedia.org/wiki/File:Big_Bear_Lake.jpg
+
+ch2-convict-lake.jpg — CONVICT LAKE (Chapter 2 opener)
+  Photo: Kate McGahan — CC BY-SA 3.0
+  Source: https://commons.wikimedia.org/wiki/File:Convict_Lake,_California.JPG
+  License: https://creativecommons.org/licenses/by-sa/3.0/
+
+ch3-owens-river.jpg — OWENS RIVER (Chapter 3 opener)
+  Photo: Daniel Mayer (Mav) — CC BY-SA 3.0
+  Source: https://commons.wikimedia.org/wiki/File:Owens_River_from_tableland-750px.jpg
+  License: https://creativecommons.org/licenses/by-sa/3.0/
+
+ch4-june-lake.jpg — JUNE LAKE (Chapter 4 opener)
+  Photo: Plane777 — PUBLIC DOMAIN
+  Source: https://en.wikipedia.org/wiki/File:June_Lake,_California.jpg
+
+ch6-pyramid-rock.jpg — PYRAMID LAKE, NEVADA (Chapter 6 opener)
+  Photo: Rhalden — PUBLIC DOMAIN
+  Source: https://commons.wikimedia.org/wiki/File:The_pyramid.jpg
+
+CHAPTER 5 OPENER: PHOTO SLOT OPEN — no free-license photo secured. Slot left clean per deck rule.
+
+LOGOS (already on GitHub, referenced by the deck):
+  cowboy-logo.jpg — Baja Troy Reviews badge
+  trailhead-logo.png — Trailhead Commerce
+
+QUOTES: cover blurb credited "395 TROUT HIGHWAY"; all BAJA TROY SAYS lines and
+the closing quote come from the Baja Troy Quote Bank (Master Build Kit V1).
